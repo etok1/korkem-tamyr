@@ -1,0 +1,18 @@
+<svg width="203" height="370" viewBox="0 0 203 370" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M111 369C111 369 101.503 284.709 102 242C102.497 199.291 111 133 111 133" stroke="#B6C687" stroke-width="7"/>
+<path d="M101 259L153 212" stroke="#B6C687" stroke-width="7" stroke-linejoin="round"/>
+<ellipse cx="63.5" cy="88" rx="63.5" ry="47" fill="#F49AA2"/>
+<ellipse cx="104" cy="51" rx="53" ry="51" fill="#F49AA2"/>
+<ellipse cx="104" cy="119.5" rx="53" ry="55.5" fill="#F49AA2"/>
+<ellipse cx="138.5" cy="91.5" rx="64.5" ry="50.5" fill="#F49AA2"/>
+<circle cx="101.5" cy="87.5" r="26.5" fill="#FFD65C"/>
+<line x1="94.4979" y1="12.9212" x2="96.4979" y2="50.9212" stroke="#FF5724" stroke-width="3"/>
+<line x1="109.492" y1="13.157" x2="105.492" y2="51.157" stroke="#FF5724" stroke-width="3"/>
+<line x1="177.417" y1="73.4408" x2="139.417" y2="84.4408" stroke="#FF5724" stroke-width="3"/>
+<line x1="176.882" y1="98.4953" x2="138.882" y2="95.4954" stroke="#FF5724" stroke-width="3"/>
+<line x1="114.555" y1="156.401" x2="104.555" y2="120.401" stroke="#FF5724" stroke-width="3"/>
+<line x1="93.5052" y1="155.875" x2="96.5052" y2="119.875" stroke="#FF5724" stroke-width="3"/>
+<line x1="19.2095" y1="76.5147" x2="57.1853" y2="81.871" stroke="#FF5724" stroke-width="3"/>
+<line x1="22.7542" y1="100.52" x2="56.73" y2="94.8766" stroke="#FF5724" stroke-width="3"/>
+<ellipse cx="158" cy="204.5" rx="19" ry="17.5" fill="#CA9FDD"/>
+</svg>

@@ -1,0 +1,18 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* App.css */
+.clip-path-header {
+  clip-path: url(#wave);
+}
+
+.clip-path-section {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+}
+
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+  color: wheat;
+}
