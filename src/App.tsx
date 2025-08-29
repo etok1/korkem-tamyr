@@ -21,7 +21,7 @@ export default function App() {
        <MobileHeader/> 
        <DesktopHeader/> 
    
-    <main>
+    <main className='bg-whitishColor'>
         <Routes>
           <Route path="/" element={<Home/>} />
            <Route path="/team" element={<Team/>} />
