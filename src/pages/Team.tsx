@@ -98,7 +98,7 @@ export default function Team(){
                 ))}
             </div>
             {circlesConfig.map((circle, index)=> (
-                <div key={index} className={`absolute transform -z-10 !opacity-100 ${circle.className}`}>
+                <div key={index} className={`absolute transform -z-50 !opacity-100 ${circle.className}`}>
                     <Figures type={circle.type} color={circle.color} className={`${circle.size}`}></Figures>
                 </div>
             ))}

@@ -21,7 +21,7 @@ export default function App() {
        <MobileHeader/> 
        <DesktopHeader/> 
    
-    <main className='bg-gradient-to-r from-nightBlue/90 to-[#0369A1]'>
+    <main>
         <Routes>
           <Route path="/" element={<Home/>} />
            <Route path="/team" element={<Team/>} />

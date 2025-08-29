@@ -180,13 +180,13 @@ export const circlesConfig = [
   {
     type: "ellipse",
     color: "#FF8BB470",
-    className: "lg:top-[10%] lg:right-[15%] ",
+    className: "top-[-4%] left-[5%]  lg:top-[10%] lg:right-[15%] ",
     size: " !w-[124px] !h-[124px]",
   },
   {
     type: "ellipse",
     color: "#FF823770",
-    className: "lg:top-[10%] lg:left-[15%] ",
+    className: "top-[10%] left-[15%] lg:top-[10%] lg:left-[15%] ",
     size: " !w-[124px] !h-[124px]",
   },
 ];

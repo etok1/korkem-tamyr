@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import logo from '../../../public/logo.png'; 
 import { Instagram, Menu, X, Youtube } from 'lucide-react';
 import { navigation } from '../../utils/data';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const media = [
     {
@@ -21,7 +21,7 @@ const media = [
 export default function MobileHeader() {
   const [isOpen, setIsOpen] =  useState(false)
    const menuRef = useRef<HTMLDivElement>(null)
-
+ const location = useLocation();
    useEffect(() => {
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -37,6 +37,10 @@ export default function MobileHeader() {
   const handleOpen = () => {
       setIsOpen(prevOpen => !prevOpen)
   }
+
+useEffect(() => {
+  setIsOpen(false)
+}, [location])
 
   return (
    <header className='lg:hidden flex h-[80px] px-10 py-5 bg-headerWhite relative'  style={{ fontFamily: 'Montserrat, sans-serif'}}>
