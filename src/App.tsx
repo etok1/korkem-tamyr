@@ -7,8 +7,10 @@ import MobileHeader from './components/Header/MobileHeader';
 import Books from './pages/Books';
 import Articles from './pages/Articles';
 import Highlights from './pages/Highlight';
-import { articles } from './utils/data';
+import { articles, podcasts } from './utils/data';
 import Footer from './components/Footer';
+import Podcasts from './pages/Podcasts';
+import Podcast from './pages/Podcast';
 
 export default function App() {
 
@@ -19,11 +21,13 @@ export default function App() {
        <MobileHeader/> 
        <DesktopHeader/> 
    
-    <main>
+    <main className='bg-gradient-to-r from-nightBlue/90 to-[#0369A1]'>
         <Routes>
           <Route path="/" element={<Home/>} />
            <Route path="/team" element={<Team/>} />
            <Route path="/books" element={<Books/>} />
+           <Route path="/podcasts" element={<Podcasts/>} />
+           <Route path="/podcast/:id" element={<Podcast podcasts={podcasts}/>} />
            <Route path="/history/:categoryId/:articleId" element={<Highlights articles={articles}/>} />
            <Route path="/history/:categoryId" element={<Articles/>} />
            

@@ -1,7 +1,10 @@
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import type { memberType } from "../utils/types";
 
-export default function Member({image, name, position, color, circleColor, nickname, link}){
+
+
+export default function Member({image, name, position, color, circleColor, nickname, link}:memberType){
     return(
         <div className="md:max-w-[400px] md:max-h-[534px] h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 ease-in-out" style={{  fontFamily: "Shantell Sans, cursive" }}>
             <div className="md:max-w-[400px] md:max-h-[400px] h-full relative overflow-hidden group">

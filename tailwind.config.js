@@ -21,6 +21,7 @@ export default {
         blueColor: "#5966B1",
         lavenderBlue: "#717EC3",
         skyBlue: "#93AECA",
+        nightBlue: "#1E3A8A",
         // green
         grassGreen: "#B6C687",
         lightGreen: "#C5CC82",

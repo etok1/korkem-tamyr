@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { formattedText } from "../utils/formatText";
 
 
 interface ArticleProps {
@@ -12,12 +13,7 @@ interface ArticleProps {
 
 export default function Article({img, name = '', text = '', id, category}: ArticleProps){
 
-    const formattedText = (text:string, maxLength:number) => {
-        if(text.length >= maxLength){
-            return text.substring(0, maxLength) + '...'
-        }
-        return text
-    }
+
 
     return(
         <div className='w-[300px] h-[470px] flex flex-col sm:flex-row md:flex-col sm:w-fit sm:h-fit md:w-[300px] md:h-[470px] bg-whitishColor rounded-lg hover:shadow-lg transition-shadow duration-150 ease-in' >

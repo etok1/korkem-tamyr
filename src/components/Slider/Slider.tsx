@@ -4,6 +4,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../../App.css'
 
+import image1 from '../../assets/podcast1.jpg'
+import image2 from '../../assets/podcast2.jpg'
+import image3 from '../../assets/podcast3.jpg'
+import image4 from '../../assets/podcast4.jpg'
+
+
 export default function SliderComponent() {
   const settings = {
     dots: true,
@@ -42,40 +48,31 @@ export default function SliderComponent() {
     //     }
     //   }
     // ]
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />,
+    // nextArrow: <CustomNextArrow />,
+    // prevArrow: <CustomPrevArrow />,
   };
 
   const images = [
     {
         link: '',
-        img: '',
+        img: image1,
     },{
         link: '',
-        img: '',
+        img: image2,
     },{
         link: '',
-        img: '',
+        img: image3,
     },{
         link: '',
-        img: '',
-    },{
-        link: '',
-        img: '',
-    },{
-        link: '',
-        img: '',
-    },{
-        link: '',
-        img: '',
-    },
+        img: image4,
+    }
   ]
   return (
    
         <Slider {...settings}>
             {images.map((image, index) => (
-                <div className="!w-[150px] sm:!w-[250px] h-[200px] bg-slate-900">
-                    <h3>{index + 1} {image.link}</h3>
+                <div className="h-full md:h-[300px] md:w-[300px] overflow-hidden">
+                    <img src={image.img} alt={`podcast ${index}`} className="w-full h-full rounded-2xl"/>
                 </div>
             ))}
         </Slider>

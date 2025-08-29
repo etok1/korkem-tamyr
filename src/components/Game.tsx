@@ -1,9 +1,6 @@
-// interface GameProps {
-//   icon: React.ReactNode;
-//   bg: string;
-// }
+import type { GamesType } from "../utils/types";
 
-export function Game({ icon, bg }) {
+export function Game({ icon, bg }:GamesType) {
   return (
     <div className='relative w-[150px] h-[150px] xs:w-[200px] xs:h-[200px] sm:w-[130px] sm:h-[130px] md:w-[230px] md:h-[230px] lg:w-[250px] lg:h-[250px] flex items-center justify-center group '>
       <img 

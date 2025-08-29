@@ -7,7 +7,15 @@ import pic6 from "../assets/article6.png";
 import pic7 from "../assets/article7.png";
 import pic8 from "../assets/article8.png";
 import pic9 from "../assets/article9.png";
-
+import audio1 from "../assets/podcast1.m4a";
+import audio2 from "../assets/podcast2.m4a";
+import audio3 from "../assets/podcast3.m4a";
+import audio4 from "../assets/podcast4.m4a";
+import logo1 from "../assets/podcast1.jpg";
+import logo2 from "../assets/podcast2.jpg";
+import logo3 from "../assets/podcast3.jpg";
+import logo4 from "../assets/podcast4.jpg";
+import type { NavigationItem } from "./types";
 export const figuresConfig = [
   {
     type: "cloud",
@@ -52,10 +60,10 @@ export const figuresConfig = [
       "absolute top-[15%] left-[37%]  lg:top-[26%] lg:left-[27%] w-[55px] lg:w-[75px] sm:w-[70px]",
   },
   {
-    type: "heart",
+    type: "cloud",
     color: "#E4405F",
     className:
-      "absolute top-[3%] right-[3%] lg:top-[6%] lg:right-[3%] w-[30px] sm:w-[70px] rotate-6",
+      "absolute top-[3%] right-[3%] lg:top-[6%] lg:right-[3%] w-[30px] lg:w-[90px] sm:w-[70px]",
   },
   {
     type: "flower2",
@@ -183,7 +191,7 @@ export const circlesConfig = [
   },
 ];
 
-export const navigation = [
+export const navigation: NavigationItem[] = [
   {
     name: "Тобымыз",
     link: "/team",
@@ -201,8 +209,8 @@ export const navigation = [
     link: "/games",
   },
   {
-    name: "Подкаст",
-    link: "/podcast",
+    name: "Подкасты",
+    link: "/podcasts",
   },
   {
     name: "Ерекшеліктері",
@@ -571,11 +579,46 @@ export const navigationFooter = [
     link: "/games",
   },
   {
-    name: "Подкаст",
-    link: "/podcast",
+    name: "Подкасты",
+    link: "/podcasts",
   },
   {
     name: "Muppet Show",
     link: "/show",
+  },
+];
+
+export const podcasts = [
+  {
+    id: 1,
+    name: "📖 Сәлт Дәстүр",
+    text: "қазақтың көне салт-дәстүрлері мен әдет-ғұрыптарының мәнін ашып, олардың бүгінгі күндегі жалғастығын әңгімелейміз.",
+    image: logo1,
+    audio: audio1,
+    duration: "14:45",
+  },
+  {
+    id: 2,
+    name: "📜 Сән Тарихы, XIX-дан XXI-ғасыр Дейін",
+    text: "сән әлемінің дамуын, ғасырлар бойғы өзгерістерін және қазіргі трендтерге қалай жеткенін талдаймыз.",
+    image: logo2,
+    audio: audio2,
+    duration: "08:59",
+  },
+  {
+    id: 3,
+    name: "🎼 Музыка: Дәстүрден Заманауиға Дейін",
+    text: "дәстүрлі қазақ әуендерінен бастап, заманауи музыкалық бағыттарға дейінгі өзгерістер мен ықпалдарды қарастырамыз.",
+    image: logo3,
+    audio: audio3,
+    duration: "11:39",
+  },
+  {
+    id: 4,
+    name: "🏔️ Жердің Бір Түйірі",
+    text: "туған жер туралы аңызға негізделген әңгіме. Кішкентай ғана жердің түйірі халқымыздың тарихи жады мен рухани құндылықтарының символы ретінде суреттеледі.",
+    image: logo4,
+    audio: audio4,
+    duration: "32:39",
   },
 ];

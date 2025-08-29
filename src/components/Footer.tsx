@@ -7,7 +7,7 @@ export default function Footer(){
    
 
     return(
-        <footer className="mt-auto py-4 bg-blueColor w-full h-[450px] "  style={{  fontFamily: "Shantell Sans, cursive" }}>
+        <footer className="mt-auto py-4 bg-blueColor w-full h-[450px] relative bottom-0 left-0 right-0"  style={{  fontFamily: "Shantell Sans, cursive" }}>
             <div className="max-w-[1200px] w-full h-full m-auto  flex flex-col items-center justify-between">
                 <div style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}>
                     <h2 className="text-lg lg:text-4xl font-extrabold text-skyBlue tracking-[0.2em]" >Korkem Tamyr</h2>

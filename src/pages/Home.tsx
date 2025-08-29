@@ -1,21 +1,22 @@
 import logo from '../assets/logoWithName.svg'
-import filmFlowerIcon from '../assets/bigFlowerIcon.svg'
+// import filmFlowerIcon from '../assets/bigFlowerIcon.svg'
 import { Figures } from '../components/Figures';
-import { figuresConfig, ellipseConfig } from '../utils/data';
+import { ellipseConfig } from '../utils/data';
 import {Game} from '../components/Game';
 import bg1 from '../assets/game1.png'
 import bg2 from '../assets/game2.png'
 import bg3 from '../assets/game3.png'
 import podcastBg from '../assets/podcastBg.png'
-import bgLogo  from '../assets/bgLogo.png'
+// import bgLogo  from '../assets/bgLogo.png'
 import { NavLink } from 'react-router-dom';
 import { MoveRight } from 'lucide-react';
 import { HistoryRow } from '../components/History';
 import bookCover from '../assets/bookCover.png'
 import SliderComponent from '../components/Slider/Slider';
+import NotAvailable from '../components/NotAvailable';
+import type { GamesType, historyType } from '../utils/types';
 
-
-const games = [
+const games: GamesType[] = [
   {
      bg: bg1,
  icon: (
@@ -32,7 +33,8 @@ const games = [
   }
 ]
 
-const history = [
+
+const history: historyType[] = [
   {
     icon: (
 <svg xmlns="http://www.w3.org/2000/svg" className='w-10 h-10 xs:w-10 xs:h-10 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
@@ -60,7 +62,7 @@ const history = [
 
 export default function Home() {
 
- 
+
    
   return (
    <>
@@ -68,24 +70,24 @@ export default function Home() {
       {/* Central Logo */}
       
         <div className="z-50 relative">
-          <img src={logo} alt="logo. Korkem Tamyr" className="mx-auto  w-[150px] sm:w-[180px] md:w-[200px] lg:w-[350px]" />
+          <img src={logo} alt="logo. Korkem Tamyr" className="mx-auto  w-[250px] sm:w-[180px] md:w-[200px] lg:w-[350px]" />
         </div>
         
       
       
       {/* Icons Container */}
-      <div className="absolute inset-0 z-10">
+      {/* <div className="absolute inset-0 z-10">
         {figuresConfig.map((figure, index) => (
           
-            <Figures type={figure.type} color={figure.color} className={figure.className} />
+            <Figures key={index} type={figure.type} color={figure.color} className={figure.className} />
           
         ))}
-      </div>
+      </div> */}
     </section>
       <section className='w-full bg-gradient-to-r h-[400px] xs:h-[450px] md:h-[55vh] from-paleGreen to-[#C5CC82] flex items-center justify-center text-center md:text-left z-[9999]' style={{  fontFamily: "Balsamiq Sans, sans-serif" }}>
         <div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
           <div className='w-full md:w-1/2'>
-            <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-2xl leading-[1.3] sm:leading-[1.4] md:leading-[1.5]'>
+            <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
               <span className='text-greenColor'>Әлеуметтік-ағартушылық жоба</span>, 
               болашақ ұрпаққа қазақтың <span className='text-greenColor'>тарихы мен мәдениетін</span> 
               сақтап, жеткізу мақсатында құрылған. 📖
@@ -93,18 +95,18 @@ export default function Home() {
           </div>
 
           <div className='w-full xs:w-2/3 md:w-1/2 flex flex-col items-center md:items-start gap-4 md:gap-6'>
-            <p className='text-gray-500 font-medium text-xs xs:text-sm sm:text-base md:text-lg leading-[1.5] sm:leading-[1.6]'>
+            <p className='text-gray-500 font-medium text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-[1.6] lg:leading-10'>
               Біз балабақшаларға арналған тегін дамытушы материалдар ұсынамыз,
               балалар ұлттық мұрасын кішкентай кезінен білуі үшін.
             </p>
-            <button className='border-2 border-greenColor text-greenColor font-semibold px-3 py-2 xs:px-4 xs:py-2 rounded-lg text-xs xs:text-sm sm:text-base md:text-sm hover:bg-greenColor hover:text-white transition-colors'>
+            <NavLink to={'/team'}><button className='border-2 border-greenColor text-greenColor font-semibold px-3 py-2 xs:px-4 xs:py-2 rounded-lg text-xs xs:text-sm sm:text-base md:text-sm hover:bg-greenColor hover:text-white transition-colors'>
               Наша команда
-            </button>
+            </button></NavLink>
           </div>
         </div>
       </section>
       <section className=' w-full h-[350px]  md:h-[500px] bg-lightYellow relative flex items-center justify-center'  style={{  fontFamily: "Shantell Sans, cursive" }} >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='absolute top-[-10%] xs:top-[-20%] ss:top-[-25%] sm:top-[-30%] md:top-[-18%] lg:top-[-20%] xl:top-[-20%] z-0'>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='absolute top-[-10%] xs:top-[-20%] ss:top-[-25%] sm:top-[-30%] md:top-[-18%] lg:top-[-20%] xl:top-[-30%] z-0'>
           <path fill="#FFDA77" fill-opacity="1" d="M0,128L80,128C160,128,320,128,480,112C640,96,800,64,960,58.7C1120,53,1280,75,1360,85.3L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
         </svg>  
         {ellipseConfig.map((ellipse, index) => (
@@ -119,18 +121,20 @@ export default function Home() {
           <div className='w-1/3 h-full sm:w-[150px] lg:w-[250px] bg-gray-900'><img src={bookCover} alt="bookCover" className='w-full h-full'/></div>
           <div className='w-2/3 h-full text-left flex flex-col items-start justify-between'>
             <h2 className='text-xs xs:text-base sm:text-xl md:text-lg lg:text-4xl font-bold text-pigPink mb-2 md:mb-4'>📚Балаларға Арналған Кітаптар</h2>
-            <p className='text-[#6D6D6D] text-[9px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>«Қазақ Тарихы А-дан I-ге дейін» атты екі тегін балалар кітабымызды қазір жүктеп алып, оқыңыз (қазақ және ағылшын тілдерінде). Бұл кітаптар қазақ тарихындағы түрлі тұлғалар қамтылған. Абай Құнанбайұлынан бастап Мәншүк Мәметоваға дейін – бұл кітаптар жас оқырмандар үшін қазақ тарихына кіріспе бола алады.
+            <p className='text-[#6D6D6D] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>«Қазақ Тарихы А-дан I-ге дейін» атты екі тегін балалар кітабымызды қазір жүктеп алып, оқыңыз (қазақ және ағылшын тілдерінде). Бұл кітаптар қазақ тарихындағы түрлі тұлғалар қамтылған. Абай Құнанбайұлынан бастап Мәншүк Мәметоваға дейін – бұл кітаптар жас оқырмандар үшін қазақ тарихына кіріспе бола алады.
 Бүгін тегін көшірмеге тапсырыс беріңіз!</p>
-            <button className='text-[8px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 border-none rounded-2xl'  style={{  fontFamily: "Shantell Sans, cursive" }}>Жүктеп алу</button>
+            <NavLink to={'/books'}><button className='text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 rounded-2xl hover:bg-coralColor transition-all duration-150 ease-in '  style={{  fontFamily: "Shantell Sans, cursive" }}>Жүктеп алу</button></NavLink>
           </div>  
         </div> 
       </section>
-      <section className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[#FAFAFA] relative flex items-center justify-center'>
-        <div className='w-[100vw] h-full absolute bottom-0 flex items-end justify-between z-0 px-3'>
+      <section className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[#FAFAFA] flex items-center justify-center'>
+        {/* <div className='w-[100vw] h-full absolute bottom-0 flex items-end justify-between z-0 px-3'>
           <img src={filmFlowerIcon} alt="filmFlowerIcon" className='h-[100px] sm:h-[180px] md:h-[250px] lg:h-[330px]'/>
           <img src={filmFlowerIcon} alt="filmFlowerIcon" className='h-[100px] sm:h-[180px] md:h-[250px] lg:h-[330px]'/>
         </div>
-        <div className='flex items-center justify-center w-[300px] h-[100px] bg-gray-900 px-3'></div>
+        <div className='flex items-center justify-center w-[300px] h-[100px] bg-gray-900 px-3'></div> */}
+        <h2>Мини фильм</h2>
+        <NotAvailable/>
       </section>
       <section className='w-full h-[700px] xs:h-[850px] sm:h-[300px] md:h-[500px] bg-gradient-to-b from-skyBlue via-skyBlue to-white to-99% relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl px-3'  style={{  fontFamily: "Shantell Sans, cursive" }}>
         <h2 className='text-base sm:text-lg md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>🎲 Ойындар 🎨</h2>
@@ -140,11 +144,12 @@ export default function Home() {
               <Game icon={game.icon} bg={game.bg}/>  
           ))}
         </div>
+        {/* <MyModal/> */}
       </section>
-      <section className="w-full h-[550px] xs:h-[600px] md:h-[700px] relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl" style={{ fontFamily: "Shantell Sans, cursive" ,backgroundImage: `url(${podcastBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+      <section className="w-full h-[550px] xs:h-[600px] md:h-[800px] lg:h-[850px] relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl" style={{ fontFamily: "Shantell Sans, cursive" ,backgroundImage: `url(${podcastBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className='w-full z-[9999] flex flex-col items-center justify-start mt-10 px-3'>
           <h2 className='text-base xs:text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-gray-700 '>🎧 Подкасты</h2>
-          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-xl lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-4 text-[#6D6D6D]'>Біздің подкастымызда — ғалымдармен және туыстарымызбен әңгімелер арқылы қазақ тарихының рухын жақыннан әрі шынайы сезіне аласыз.</p>
+          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-lg lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-4 text-[#6D6D6D]'>Біздің подкастымызда — ғалымдармен және туыстарымызбен әңгімелер арқылы қазақ тарихының рухын жақыннан әрі шынайы сезіне аласыз.</p>
           <div className='w-full max-w-full mt-10 md:mt-16 flex flex-col items-center justify-center gap-16 md:gap-20'>
             <div className='w-60 sm:w-80'> 
               <SliderComponent />
@@ -156,18 +161,21 @@ export default function Home() {
         <div className='w-full max-h-[980px] h-full  absolute bg-[#FFD36E] opacity-85 z-0'></div>
       </section>
       <section className="w-full h-[500px] xs:h-[550px] md:h-[600px] lg:h-[650px] bg-lavenderColor relative flex flex-col items-center justify-start" style={{ fontFamily: "Shantell Sans, cursive"}}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  className='absolute top-[-12%] xs:top-[-15%] sm:top-[-22%] md:top-[-28%] xl:top-[-40%] z-0'><path fill="#CA9FDD" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,106.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  className='absolute top-[-12%] xs:top-[-15%] sm:top-[-22%] md:top-[-25%] xl:top-[-35%] z-0'><path fill="#CA9FDD" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,106.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         <div className='z-[9999] flex flex-col items-center justify-center w-full px-3'>
           <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>📜 Тарих пен дәстүрлердің ерекшеліктері</h2>
           <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium  leading-4 text-stone-500' >Қазақ мұрасының салт-дәстүрлері, мәдениеті мен ырымдары туралы көбірек білгіңіз келсе, біздің бөлімдерді қараңыз!</p>
+          <div className='flex items-center justify-between'>
+            
+          </div>
           <div className='w-full flex flex-col items-center justify-center gap-10 mt-10 lg:mt-20'>{history.map((h) => (
              <HistoryRow icon={h.icon} heading={h.heading} text={h.text}/>
           ))}
          </div>
         </div>
       </section>
-      <section className="w-full h-[450px] md:h-[700px] relative flex flex-col items-center justify-center" style={{ fontFamily: "Shantell Sans, cursive"}}>
-        <div className='bg-paleGreen flex flex-col items-center justify-start rounded-3xl p-5 max-h-[280px] sm:max-h-[350px] md:max-h-[450px] lg:max-h-[550px] h-full w-[95%] lg:w-[80%] xl:w-[60%]'>
+      <section className="w-full h-[450px] md:h-[700px] flex flex-col items-center justify-start" style={{ fontFamily: "Shantell Sans, cursive"}}>
+        {/* <div className='bg-paleGreen flex flex-col items-center justify-start rounded-3xl p-5 max-h-[280px] sm:max-h-[350px] md:max-h-[450px] lg:max-h-[550px] h-full w-[95%] lg:w-[80%] xl:w-[60%]'>
           <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-greenColor'>🎭 Muppet show </h2>
           <p className='text-xs sm:text-sm md:text-base text-[#6D6D6D40] font-semibold mt-2 lg:mt-2'>Біздің шоуымыздан фотосуреттер</p>
           <div className='flex  items-center justify-center gap-5 xs:gap-7 sm:gap-10 mt-7 md:mt-12'>
@@ -177,7 +185,9 @@ export default function Home() {
           </div>
           <NavLink to='/'><button className='flex items-center justify-center text-xs sm:text-sm md:text-base gap-4 rounded-2xl bg-greenColor py-2 px-5 md:py-3 md:px-7 text-paleGreen font-bold mt-7 md:mt-13 lg:mt-16'>Толығырақ біліңіз 🎙️ <span> <MoveRight color='#BEDA9D'/></span></button></NavLink>
 
-        </div>
+        </div> */}
+        <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-greenColor mt-10' style={{ fontFamily: 'Montserrat, sans-serif'}}>🎭 Muppet show </h2>
+         <NotAvailable/>
       </section>
       
    </>

@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom"
+import type { ArticleGroup, ArticleSection, ArticleType,  } from "../utils/types";
 
-export default function Highlights({articles}){
+export default function Highlights({articles}:{ articles: ArticleGroup[] }){
 
   const { categoryId, articleId } = useParams();
   
-  // Find the category first
-  const category = articles.find(cat => cat.id === categoryId);
+
+  const category = articles.find((cat: ArticleGroup) => cat.id === categoryId);
   
-  // Then find the specific article in that category
-  const article = category?.articles.find(art => art.id === Number(articleId));
+  const article = category?.articles.find((art:ArticleType) => art.id === Number(articleId));
 
   if (!category) return <div>Category not found</div>;
   if (!article) return <div>Article not found in this category</div>;
@@ -41,7 +41,7 @@ export default function Highlights({articles}){
 
           
           <div className="space-y-8">
-            {article.content.sections.map((section, index) => (
+            {article.content.sections.map((section:ArticleSection, index: number) => (
               <div key={index} className="border-l-4 border-purple-200 pl-4 text-left">
                 <h2 className="text-lg md:text-2xl font-semibold text-gray-800 mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                   {section.title}

@@ -4,7 +4,7 @@ import kzBook from '../assets/Kazakh History Book from A to Z( in Kazakh).pdf'
 import kzBookCover from '../assets/bookCover2.png'
 
 
-export const circles = [
+ const circles = [
   {
    color: "#BEDA9D30",
     className: "top-[1%] left-[45%]",
