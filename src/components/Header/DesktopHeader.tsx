@@ -40,7 +40,7 @@ const media:mediaProps[] = [
                     {navigation.map((nav) => (
                     <li key={nav.name} className="group text-nightBlue font-sansPT font-bold text-sm no-underline py-5 block relative  ">
                         <NavLink 
-                        to={nav.link} 
+                        to={nav.link || '/'} 
                         className="flex items-center justify-center gap-1 relative hover:bg-nightBlue  hover:text-white px-2 py-2 rounded-xl"
                         >
                         {nav.name} {nav.name === 'Ерекшеліктері' ? <ChevronDown /> : ''}

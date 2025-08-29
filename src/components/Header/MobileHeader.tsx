@@ -49,7 +49,7 @@ export default function MobileHeader() {
           <nav className='w-full flex m-5 '>
             <ul className='flex flex-col items-start w-fit '>
                     {navigation.map((nav) => (
-                        <li className='text-nightBlue text-left font-sansPT font-bold text-sm no-underline py-1 sm:py-2 inline-block relative hover:text-purpleColor before:transition-all before:duration-300 before:h-[3px] before:content-[""] before:absolute before:bg-purpleColor before:bottom-1 sm:before:bottom-0 hover:before:w-full'><NavLink to={nav.link}>{nav.name}</NavLink></li>
+                        <li className='text-nightBlue text-left font-sansPT font-bold text-sm no-underline py-1 sm:py-2 inline-block relative hover:text-purpleColor before:transition-all before:duration-300 before:h-[3px] before:content-[""] before:absolute before:bg-purpleColor before:bottom-1 sm:before:bottom-0 hover:before:w-full'><NavLink to={nav.link || '/'}>{nav.name}</NavLink></li>
                     ))}
                 </ul>
           </nav>
