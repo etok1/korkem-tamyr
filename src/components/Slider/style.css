@@ -1,0 +1,33 @@
+/* Fix for Slick Slider image sizing */
+.slide-item {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.podcast-image {
+  width: 250px !important;
+  height: 250px !important;
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Override Slick Slider default styles */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 640px) {
+  .podcast-image {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}

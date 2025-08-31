@@ -17,11 +17,12 @@ export default function App() {
 
   return (
    <>
+
    
        <MobileHeader/> 
        <DesktopHeader/> 
    
-    <main className='bg-whitishColor'>
+    <main className='bg-whitishColor '>
         <Routes>
           <Route path="/" element={<Home/>} />
            <Route path="/team" element={<Team/>} />

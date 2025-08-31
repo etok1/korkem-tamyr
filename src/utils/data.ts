@@ -101,42 +101,86 @@ export const ellipseConfig = [
   {
     type: "ellipse",
     color: "#A7B5FE",
-    className: "lg:top-[10%] lg:left-[45%]",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[10%] left-[45%] lg:top-[10%] lg:left-[45%]",
   },
   {
     type: "ellipse",
     color: "#5966B1",
-    className: "lg:bottom-[27%] lg:right-[45%]",
+    className:
+      "w-5 sm:w-7 lg:w-10 bottom-[10%] right-[15%] lg:bottom-[27%] lg:right-[45%]",
   },
   {
     type: "ellipse",
     color: "#AA7AB6",
-    className: "lg:top-[50%] lg:left-[20%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 bottom-[35%] left-[45%] lg:bottom-[5%] lg:left-[20%] ",
   },
   {
     type: "ellipse",
     color: "#B3D07E",
-    className: "lg:top-[10%] lg:right-[15%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[30%] left-[65%] lg:top-[-5%] lg:right-[15%] ",
   },
   {
     type: "ellipse",
     color: "#F49AA2",
-    className: "lg:bottom-[25%] lg:right-[5%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[20%] right-[0%] lg:bottom-[0%] lg:right-[5%] ",
   },
   {
     type: "ellipse",
     color: "#FF5724",
-    className: "lg:bottom-[10%] lg:left-[5%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 bottom-[10%] left-[25%] lg:bottom-[10%] lg:left-[5%] ",
   },
   {
     type: "ellipse",
     color: "#FF8237",
-    className: "lg:top-[10%] lg:right-[15%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[0%] right-[5%] lg:top-[0%] lg:right-[15%] ",
   },
   {
     type: "ellipse",
     color: "#FFBE54",
-    className: "lg:top-[10%] lg:left-[15%] ",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[12%] left-[5%] lg:top-[10%] lg:left-[15%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#FF8237",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[2%] left-[15%] lg:top-[0%] lg:left-auto lg:right-[15%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#FF8237",
+    className:
+      "w-5 sm:w-7 lg:w-10 top-[2%] left-[15%] lg:top-[2%] lg:left-[5%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#CA9FDD",
+    className:
+      "w-5 sm:w-7 lg:w-10 bottom-[21%] left-[5%] lg:bottom-[19%] lg:left-auto  lg:right-[10%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#B6C687",
+    className:
+      "w-5 sm:w-7 lg:w-10 bottom-[5%] left-[45%] lg:bottom-[10%] lg:left-[5%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#FF8BB4",
+    className:
+      "w-5 sm:w-7 lg:w-10 hidden lg:flex lg:bottom-[10%] lg:right-[35%] ",
+  },
+  {
+    type: "ellipse",
+    color: "#FF6875",
+    className:
+      "w-5 sm:w-7 lg:w-10 hidden lg:flex lg:bottom-[4%] lg:left-[35%] ",
   },
 ];
 

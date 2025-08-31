@@ -77,7 +77,7 @@ const members = [
     {
         image: member8,
         name: 'Inkar',
-        position: 'animations',
+        position: 'Short Film Animator',
         color: '#B3D07E',
         circleColor: '#97A13B30',
         nickname: 'iko.armm',
@@ -88,7 +88,7 @@ const members = [
 export default function Team(){
     return(
         <>
-        <section className=" relative z-50" >
+        <section className=" relative" >
             <h1 className="text-lg xs:text-xl sm:text-3xl font-bold lg:text-5xl text-purple-700 m-12"  style={{  fontFamily: "Playpen Sans, cursive" }}>
                 <span className="animate-wiggle">🌟</span> Наша команда! <span className="animate-wiggle">🌟</span>
             </h1>

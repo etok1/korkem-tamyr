@@ -19,14 +19,18 @@ export interface DropdownItem {
 }
 
 export type GamesType = {
+  id: number;
   bg: string;
   icon: React.ReactElement;
+  onClick: () => void;
+  giveIdToParent: (id: number) => void;
 };
 
 export interface historyType {
   icon: React.ReactElement;
   heading: string;
   text: string;
+  link: string;
 }
 
 export interface memberType {
@@ -66,3 +70,9 @@ export type ArticleGroup = {
   category: Category;
   articles: ArticleType[];
 };
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children?: React.ReactNode;
+}

@@ -2,7 +2,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../../App.css'
+import './style.css'
 
 import image1 from '../../assets/podcast1.jpg'
 import image2 from '../../assets/podcast2.jpg'
@@ -54,16 +54,16 @@ export default function SliderComponent() {
 
   const images = [
     {
-        link: '',
+        link: '/podcast/1',
         img: image1,
     },{
-        link: '',
+        link: '/podcast/2',
         img: image2,
     },{
-        link: '',
+        link: '/podcast/3',
         img: image3,
     },{
-        link: '',
+        link: '/podcast/4',
         img: image4,
     }
   ]
@@ -71,9 +71,13 @@ export default function SliderComponent() {
    
         <Slider {...settings}>
             {images.map((image, index) => (
-                <div className="h-full md:h-[300px] md:w-[300px] overflow-hidden">
-                    <img src={image.img} alt={`podcast ${index}`} className="w-full h-full rounded-2xl"/>
-                </div>
+                <div key={index} className="slide-item">
+            <img 
+              src={image.img} 
+              alt={`podcast ${index}`} 
+              className="podcast-image"
+            />
+          </div>
             ))}
         </Slider>
     

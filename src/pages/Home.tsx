@@ -1,7 +1,7 @@
 import logo from '../assets/logoWithName.svg'
 // import filmFlowerIcon from '../assets/bigFlowerIcon.svg'
 import { Figures } from '../components/Figures';
-import { ellipseConfig } from '../utils/data';
+import { ellipseConfig, figuresConfig } from '../utils/data';
 import {Game} from '../components/Game';
 import bg1 from '../assets/game1.png'
 import bg2 from '../assets/game2.png'
@@ -14,19 +14,24 @@ import { HistoryRow } from '../components/History';
 import bookCover from '../assets/bookCover.png'
 import SliderComponent from '../components/Slider/Slider';
 import NotAvailable from '../components/NotAvailable';
-import type { GamesType, historyType } from '../utils/types';
+import type {  historyType } from '../utils/types';
+import { useEffect, useState } from 'react';
+import MyModal from '../components/Modal';
 
-const games: GamesType[] = [
+const games = [
   {
+    id: 1,
      bg: bg1,
  icon: (
     <svg xmlns="http://www.w3.org/2000/svg"   className='md:w-[182px] d:h-[182px]' viewBox="0 0 24 24" fill="none" stroke="#FFBE54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="12" x="2" y="10" rx="2" ry="2"/><path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6"/><path d="M6 18h.01"/><path d="M10 14h.01"/><path d="M15 6h.01"/><path d="M18 9h.01"/></svg>
   )  },
   {
+    id: 2,
      bg: bg2,
  icon: (
 <svg xmlns="http://www.w3.org/2000/svg"  className='md:w-[182px] d:h-[182px]' viewBox="0 0 24 24" fill="none" stroke="#FF5724" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M17 3h4v4"/><path d="M18.575 11.082a13 13 0 0 1 1.048 9.027 1.17 1.17 0 0 1-1.914.597L14 17"/><path d="M7 10 3.29 6.29a1.17 1.17 0 0 1 .6-1.91 13 13 0 0 1 9.03 1.05"/><path d="M7 14a1.7 1.7 0 0 0-1.207.5l-2.646 2.646A.5.5 0 0 0 3.5 18H5a1 1 0 0 1 1 1v1.5a.5.5 0 0 0 .854.354L9.5 18.207A1.7 1.7 0 0 0 10 17v-2a1 1 0 0 0-1-1z"/><path d="M9.707 14.293 21 3"/></svg>  )  },
   {
+    id: 3,
     bg: bg3,
     icon: (
 <svg xmlns="http://www.w3.org/2000/svg"  className='md:w-[182px] d:h-[182px]' viewBox="0 0 24 24" fill="none" stroke="#97A13B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></svg>  )
@@ -37,52 +42,88 @@ const games: GamesType[] = [
 const history: historyType[] = [
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg" className='w-10 h-10 xs:w-10 xs:h-10 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
     ),
-    heading: 'Тарихи дерек',
-    text: 'Өткеннен келешекке жалғасатын тәжірибе',
+    heading: 'Мәңгілік Мұра: Дәстүрлер',
+    text: 'Ата-бабадан жалғасқан салт-дәстүрлер мен әдет-ғұрыптар, ұрпаққа рухани байлық сыйлайды.',
+    link: '/history/heritage'
   },
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg"  className='w-10 h-10 xs:w-10 xs:h-10 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-    ),
-    heading: 'Халықтық мұра',
-    text: 'Ауызша дәстүр арқылы берілген тарихи дана сөздер',
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]'   viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8"/><path d="M10 5H8a2 2 0 0 0 0 4h.68"/><path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8"/><path d="M14 5h2a2 2 0 0 1 0 4h-.68"/><path d="M18 22H6"/><path d="M9 2h6"/></svg>    ),
+    heading: 'Шеберлік ізі: Дәстүрлі қолөнер',
+    text: 'Көшпенділер шеберлерінің қолынан шыққан өнер туындылары мен олардың тарихы',
+    link: '/history/traditions'
   },
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg"  className='w-10 h-10 xs:w-10 xs:h-10 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
-    ),
-    heading: 'Халықтық мұра',
-    text: 'Ауызша дәстүр арқылы берілген тарихи дана сөздер',
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>    ),
+    heading: 'Дәм мен Дәстүр: Ұлттық тағамдар',
+    text: 'Ұрпақтан ұрпаққа жеткен ұлттық ас мәзірі мен тағам дайындау өнері.',
+    link: '/history/food'
   },
 ]
 
+const contents = [
+  {
+    id: 1,
+    content: 'dfdfdf'
+  },
+  {
+    id: 2,
+    content: 'welllll'
+  },
+  {
+    id: 3,
+    content: 'thats kfgkfd'
+  },
+]
 
+interface ModalContentType {
+  id: number,
+  content: string
+}
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+const [idModal, setIdModal] = useState(0)
+const [modalContent, setModalContent] = useState<ModalContentType>()
+  
+
+  const findIdModal = (id:number) => {
+    setIdModal(id);
+  };
+
+  const closeModalFromParent = () => {
+    setIsModalOpen(false);
+  };
 
 
-   
+   const openModal = () => {
+    setIsModalOpen(true);
+    
+  };
+
+  useEffect(() => {
+      const findGameContent = () => {
+    const content = contents.find((item) => item.id === idModal)
+    setModalContent(content) 
+  }
+  if (idModal !== 0) {
+    findGameContent();
+  }
+}, [idModal]);
   return (
    <>
     <section className="bg-gradient-to-br from-[#F1F1F1] to-[#FEF9F4] relative h-[50vh] xs:h-[70vh] md:h-[85vh] w-full flex items-center justify-center overflow-hidden " style={{ fontFamily: "Playpen Sans, cursive" }}>
-      {/* Central Logo */}
-      
         <div className="z-50 relative">
-          <img src={logo} alt="logo. Korkem Tamyr" className="mx-auto  w-[250px] sm:w-[180px] md:w-[200px] lg:w-[350px]" />
+          <img src={logo} alt="logo. Korkem Tamyr" className="mx-auto bg-[#FEF9F4] rounded-full w-[250px] sm:w-[180px] md:w-[300px] lg:w-[350px]" />
         </div>
-        
-      
-      
-      {/* Icons Container */}
-      {/* <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10">
         {figuresConfig.map((figure, index) => (
-          
             <Figures key={index} type={figure.type} color={figure.color} className={figure.className} />
-          
         ))}
-      </div> */}
+      </div>
     </section>
       <section className='w-full bg-gradient-to-r h-[400px] xs:h-[450px] md:h-[55vh] from-paleGreen to-[#C5CC82] flex items-center justify-center text-center md:text-left z-[9999]' style={{  fontFamily: "Balsamiq Sans, sans-serif" }}>
         <div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
@@ -127,34 +168,34 @@ export default function Home() {
           </div>  
         </div> 
       </section>
-      <section className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-[#FAFAFA] flex items-center justify-center'>
+      <section className='w-full h-[300px] md:h-[300px] lg:h-[400px] bg-[#FAFAFA] flex flex-col items-center justify-center my-5 gap-4' style={{  fontFamily: "Shantell Sans, cursive" }}>
         {/* <div className='w-[100vw] h-full absolute bottom-0 flex items-end justify-between z-0 px-3'>
           <img src={filmFlowerIcon} alt="filmFlowerIcon" className='h-[100px] sm:h-[180px] md:h-[250px] lg:h-[330px]'/>
           <img src={filmFlowerIcon} alt="filmFlowerIcon" className='h-[100px] sm:h-[180px] md:h-[250px] lg:h-[330px]'/>
         </div>
         <div className='flex items-center justify-center w-[300px] h-[100px] bg-gray-900 px-3'></div> */}
-        <h2>Мини фильм</h2>
+        <h2 className='text-nightBlue font-bold sm:text-2xl'>Мини фильм</h2>
         <NotAvailable/>
       </section>
       <section className='w-full h-[700px] xs:h-[850px] sm:h-[300px] md:h-[500px] bg-gradient-to-b from-skyBlue via-skyBlue to-white to-99% relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl px-3'  style={{  fontFamily: "Shantell Sans, cursive" }}>
-        <h2 className='text-base sm:text-lg md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>🎲 Ойындар 🎨</h2>
+        <h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>🎲 Ойындар 🎨</h2>
         <p className='text-xs sm:text-sm md:text-base lg:text-lg text-blueColor mt-3 font-normal'>Игры для детей на основе казахской культуры и традиций</p>
         <div className='flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-5 lg:gap-10 mt-10 md:mt-20'>
           {games.map((game) => (
-              <Game icon={game.icon} bg={game.bg}/>  
+              <Game id={game.id} icon={game.icon} bg={game.bg} onClick={openModal} giveIdToParent={findIdModal}/>  
           ))}
         </div>
-        {/* <MyModal/> */}
+        <MyModal isOpen={isModalOpen} onClose={closeModalFromParent}><p className='text-black'>{modalContent?.content}</p></MyModal>
       </section>
       <section className="w-full h-[550px] xs:h-[600px] md:h-[800px] lg:h-[850px] relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl" style={{ fontFamily: "Shantell Sans, cursive" ,backgroundImage: `url(${podcastBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className='w-full z-[9999] flex flex-col items-center justify-start mt-10 px-3'>
           <h2 className='text-base xs:text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-gray-700 '>🎧 Подкасты</h2>
-          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-lg lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-4 text-[#6D6D6D]'>Біздің подкастымызда — ғалымдармен және туыстарымызбен әңгімелер арқылы қазақ тарихының рухын жақыннан әрі шынайы сезіне аласыз.</p>
+          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-lg lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-5 text-[#6D6D6D]'>Біздің подкастымызда — ғалымдармен және туыстарымызбен әңгімелер арқылы қазақ тарихының рухын жақыннан әрі шынайы сезіне аласыз.</p>
           <div className='w-full max-w-full mt-10 md:mt-16 flex flex-col items-center justify-center gap-16 md:gap-20'>
             <div className='w-60 sm:w-80'> 
               <SliderComponent />
             </div>
-            <NavLink to='/'><button className='flex items-center justify-center gap-4 rounded-2xl bg-blueColor text-xs xs:text-sm lg:text-base lg:py-3 lg:px-8 py-2 px-5 text-lightBlue font-bold'>Толығырақ біліңіз 🎙️ <span> <MoveRight color='#A7B5FE'/></span></button></NavLink>
+            <NavLink to='/podcasts'><button className='flex items-center justify-center gap-4 rounded-2xl bg-blueColor text-xs xs:text-sm lg:text-base lg:py-3 lg:px-8 py-2 px-5 text-lightBlue font-bold'>Толығырақ біліңіз 🎙️ <span> <MoveRight color='#A7B5FE'/></span></button></NavLink>
           </div>
         </div>
         
@@ -164,17 +205,17 @@ export default function Home() {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  className='absolute top-[-12%] xs:top-[-15%] sm:top-[-22%] md:top-[-25%] xl:top-[-35%] z-0'><path fill="#CA9FDD" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,106.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         <div className='z-[9999] flex flex-col items-center justify-center w-full px-3'>
           <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>📜 Тарих пен дәстүрлердің ерекшеліктері</h2>
-          <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium  leading-4 text-stone-500' >Қазақ мұрасының салт-дәстүрлері, мәдениеті мен ырымдары туралы көбірек білгіңіз келсе, біздің бөлімдерді қараңыз!</p>
+          <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium leading-4 text-stone-500' >Қазақ мұрасының салт-дәстүрлері, мәдениеті мен ырымдары туралы көбірек білгіңіз келсе, біздің бөлімдерді қараңыз!</p>
           <div className='flex items-center justify-between'>
             
           </div>
           <div className='w-full flex flex-col items-center justify-center gap-10 mt-10 lg:mt-20'>{history.map((h) => (
-             <HistoryRow icon={h.icon} heading={h.heading} text={h.text}/>
+             <HistoryRow icon={h.icon} heading={h.heading} text={h.text} link={h.link}/>
           ))}
          </div>
         </div>
       </section>
-      <section className="w-full h-[450px] md:h-[700px] flex flex-col items-center justify-start" style={{ fontFamily: "Shantell Sans, cursive"}}>
+      <section className="w-full h-[250px] md:h-[400px] flex flex-col items-center justify-start gap-5 mb-16" style={{ fontFamily: "Shantell Sans, cursive"}}>
         {/* <div className='bg-paleGreen flex flex-col items-center justify-start rounded-3xl p-5 max-h-[280px] sm:max-h-[350px] md:max-h-[450px] lg:max-h-[550px] h-full w-[95%] lg:w-[80%] xl:w-[60%]'>
           <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-greenColor'>🎭 Muppet show </h2>
           <p className='text-xs sm:text-sm md:text-base text-[#6D6D6D40] font-semibold mt-2 lg:mt-2'>Біздің шоуымыздан фотосуреттер</p>
@@ -186,7 +227,7 @@ export default function Home() {
           <NavLink to='/'><button className='flex items-center justify-center text-xs sm:text-sm md:text-base gap-4 rounded-2xl bg-greenColor py-2 px-5 md:py-3 md:px-7 text-paleGreen font-bold mt-7 md:mt-13 lg:mt-16'>Толығырақ біліңіз 🎙️ <span> <MoveRight color='#BEDA9D'/></span></button></NavLink>
 
         </div> */}
-        <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-greenColor mt-10' style={{ fontFamily: 'Montserrat, sans-serif'}}>🎭 Muppet show </h2>
+        <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-nightBlue mt-10' style={{ fontFamily: 'Montserrat, sans-serif'}}>🎭 Muppet show </h2>
          <NotAvailable/>
       </section>
       

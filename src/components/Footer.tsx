@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { navigationFooter } from "../utils/data";
-import { Instagram, Mail, Phone, Youtube } from "lucide-react";
+import { Instagram, Mail, Phone, } from "lucide-react";
 
 export default function Footer(){
 
@@ -28,8 +28,8 @@ export default function Footer(){
                         </ul>
                     </div>
                     <div className="flex items-center justify-center self-end sm:self-start gap-2">
-                        <Link to={''} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center  rounded-xl bg-[#93AECA35] "><Instagram color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link>
-                        <Link to={''} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center rounded-xl bg-[#93AECA35] "><Youtube color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link>
+                        <Link target="_blank" to={'https://www.instagram.com/korkem_tamyr?igsh=dDR4eXAyYXQ2aHli'} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center  rounded-xl bg-[#93AECA35] "><Instagram color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link>
+                        {/* <Link to={''} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center rounded-xl bg-[#93AECA35] "><Youtube color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link> */}
                     </div>
                 </div>
                 
@@ -37,7 +37,7 @@ export default function Footer(){
                     <div className="h-[2px] w-full bg-skyBlue"></div>
                     <div className="text-xs xs:text-sm text-skyBlue mt-3">
                         <p>© 2024-2025 Korkem tamyr</p>
-                        <span>Made by Gdgkds</span>
+                        <span>Made by </span>
                     </div>
                 </div>
             </div>
