@@ -14,7 +14,7 @@ export default function PodcastOption({id, name, duration, text, image}:podcastP
 
     return(
 <div className="bg-gradient-to-br from-white via-lavenderColor/5 to-lavenderColor/20 text-nightBlue flex flex-row p-5 md:p-7 max-w-[1100px] w-full mx-auto text-left gap-5 md:gap-7 lg:gap-9 cursor-pointer border border-gray-100 shadow-md group hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 ease-out rounded-xl" style={{ fontFamily: "Balsamiq Sans, sans-serif" }}>             <div className="w-16 h-16 xs:w-20 xs:h-20 md:w-24 md:h-24 lg:w-[150px] lg:h-[150px] overflow-hidden flex-shrink-0 rounded-lg">
-                <img src={image} alt={name} className="w-full h-full object-cover block group-hover:scale-105 transition-all duration-150 ease-in-out" />
+                <img src={image} loading='lazy' alt={name} className="w-full h-full object-cover block group-hover:scale-105 transition-all duration-150 ease-in-out" />
             </div>
             <div className="flex flex-col justify-between flex-1">
                 <h2 className="text-sm line-clamp-2 leading-tight md:text-lg lg:text-2xl font-bold group-hover:text-[#0369A1] mb-3"  style={{ fontFamily: "Montserrat, sans-serif" }}>{name}</h2>

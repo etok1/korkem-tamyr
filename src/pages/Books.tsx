@@ -64,7 +64,7 @@ export default function Books(){
                         <div className="w-[280px] h-[470px]  rounded-2xl shadow-lg hover:shadow-xl overflow-hidden group transition-all duration-300 flex flex-col z-50">
                             <div className="relative flex-1 overflow-hidden">
                                 <img 
-                                    src={kzBookCover} 
+                                    src={kzBookCover}  loading='lazy'
                                     alt="Обложка: Қазақ Тарихы" 
                                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                 />
@@ -84,7 +84,7 @@ export default function Books(){
                         <div className="w-[280px] h-[470px] rounded-2xl shadow-lg hover:shadow-xl overflow-hidden group transition-all duration-300 flex flex-col z-50">
                             <div className="relative flex-1 overflow-hidden">
                                 <img 
-                                    src={engBookCover} 
+                                    src={engBookCover}  loading='lazy'
                                     alt="Cover: Kazakh History" 
                                     className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                                 />

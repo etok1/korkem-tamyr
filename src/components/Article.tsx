@@ -18,7 +18,7 @@ export default function Article({img, name = '', text = '', id, category}: Artic
     return(
         <div className='w-[300px] h-[470px] flex flex-col sm:flex-row md:flex-col sm:w-fit sm:h-fit md:w-[300px] md:h-[470px] bg-whitishColor rounded-lg hover:shadow-lg transition-shadow duration-150 ease-in' >
             <div className='w-[300px] h-[300px] sm:w-full sm:h-full md:w-[300px] md:h-[300px] overflow-hidden relative group'>
-                <img className="h-full w-full rounded-tl-lg rounded-tr-lg z-10 object-cover" src={img} alt={name} />
+                <img className="h-full w-full rounded-tl-lg rounded-tr-lg z-10 object-cover" loading='lazy' src={img} alt={name} />
                 <div className="bg-black opacity-0  absolute inset-0 group-hover:opacity-30 transition-opacity duration-300 z-20"></div>
             </div>
             <div className="flex flex-col justify-between px-3 py-2 text-left">

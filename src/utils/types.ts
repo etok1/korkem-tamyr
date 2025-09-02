@@ -76,3 +76,26 @@ export interface ModalProps {
   onClose: () => void;
   children?: React.ReactNode;
 }
+
+interface TextContent {
+  type: "text";
+  value: string;
+}
+
+interface LinkContent {
+  type: "link";
+  text: string;
+  url: string;
+}
+
+export type ContentItem = TextContent | LinkContent;
+
+interface LanguageContent {
+  kz: ContentItem[];
+  en: ContentItem[];
+}
+
+export interface ModalContentType {
+  id: number;
+  content: LanguageContent[];
+}

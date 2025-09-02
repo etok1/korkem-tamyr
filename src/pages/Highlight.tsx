@@ -32,7 +32,7 @@ export default function Highlights({articles}:{ articles: ArticleGroup[] }){
                 {article.text}
               </p>
             </div>
-            <img 
+            <img loading='lazy'
               className="w-full md:w-[350px] h-auto max-h-[400px] object-cover rounded-lg shadow-md" 
               src={article.img} 
               alt={article.name} 

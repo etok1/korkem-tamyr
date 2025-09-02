@@ -7,7 +7,7 @@ export default function Podcasts(){
     return(
         <div className="bg-whitishColor flex flex-col p-4 md:p-8 max-w-[1100px] mx-auto h-full" style={{ fontFamily: "Shantell Sans, cursive" }}>
             <div className=" flex flex-col-reverse items-start justify-center md:flex-row md:gap-10 lg:gap-16 text-left ">
-                <img src={podcastLogo} alt="podcasts section logo" className='max-w-[300px] w-full mt-5 md:mt-0 rounded-lg shadow-lg'/>
+                <img src={podcastLogo} loading='lazy' alt="podcasts section logo" className='max-w-[300px] w-full mt-5 md:mt-0 rounded-lg shadow-lg'/>
                 <div>
                     <h1 className="font-bold text-xl text-nightBlue mt-2 md:mt-0 lg:text-5xl" style={{ fontFamily: "Montserrat, sans-serif" }}>Korkem Tamyr podcasts</h1>
                     <p className="text-blueColor text-sm font-medium mt-2 lg:mt-5">Біз бұл подкасттарды қазақ тілінде жазып, ана тіліміздің әуезін сақтап, мәдениетімізді жергілікті де, шетелдік те тыңдармандарға жеткізуді мақсат етеміз.</p>

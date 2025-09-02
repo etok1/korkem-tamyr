@@ -14,9 +14,10 @@ import { HistoryRow } from '../components/History';
 import bookCover from '../assets/bookCover.png'
 import SliderComponent from '../components/Slider/Slider';
 import NotAvailable from '../components/NotAvailable';
-import type {  historyType } from '../utils/types';
+import type {  historyType, ModalContentType } from '../utils/types';
 import { useEffect, useState } from 'react';
 import MyModal from '../components/Modal';
+import ModalContentComp from '../components/ModalContentComp';
 
 const games = [
   {
@@ -64,25 +65,54 @@ const history: historyType[] = [
   },
 ]
 
-const contents = [
+const contents:ModalContentType[] = [
   {
     id: 1,
-    content: 'dfdfdf'
+    content: [
+      {
+        kz: [
+          { type: 'text', value: ' 1) KZ: Қазақы өрнектермен безендірілген тегін бояу кітабымызды ' },
+          { type: 'link', text: 'жүктеп алыңыз', url: '../assets/colouringBook.pdf' },
+          { type: 'text', value: '! Дәстүрді өз қолыңызбен түрлі түске бояп, жан бітіріңіз. ' },
+        ],
+        en: [
+          { type: 'text', value: '1) English: ' },
+                { type: 'link', text: 'Download', url: '../assets/colouringBook.pdf' },
+      { type: 'text', value: ' our free coloring book inspired by Kazakh patterns! Bring tradition to life with your own colors.' }
+        ]
+      }
+    ]
   },
   {
     id: 2,
-    content: 'welllll'
+    content: [
+      {
+        kz: [
+                { type: 'text', value: 'KZ : Бұл жоба қазақ мәдениетінің сұлулығын қазіргі заманға сай түрде жеткізу мақсатымен дүниеге келді.  Біз үшін тарих пен дәстүр тек оқулықтарда ғана емес, күнделікті өмірде де көрініс табуы керек: суреттерде, ойындарда, фотосуреттерде – қуаныш пен шабыт сыйлайтын сәттерде. Осындай материалдар арқылы біз ұрпақтарды жақындастыруды қалаймыз: балалар шығармашылықпен мәдениетті таныса, ересектер мақтаныш пен сағыныш сезімін қайта тапса дейміз.' },
+        ],
+        en: [
+            { type: 'text', value: 'Eng: This project was born from a desire to preserve and share the beauty of Kazakh culture in a modern way. We believe that history and tradition should live not only in textbooks, but also in everyday life — in drawings, games, photographs, and the little things that spark joy and inspiration. Through these materials, we hope to connect generations: children can discover culture through creativity, while adults can rediscover pride and nostalgia.' },]
+      }
+    ]
   },
   {
     id: 3,
-    content: 'thats kfgkfd'
+    content: [
+      {
+        kz: [
+{ type: 'text', value: 'KZ:' },
+      { type: 'link', text: 'Мұнда ', url: '' },
+      { type: 'text', value: 'біз жасаған жұмыстардың артындағы сәттер: сурет салу, материал жинау, идеяны жүзеге асыру барысы. Неге бұлай істедік? Себебі дәстүр тірі болып, әр адамға жақын әрі қолжетімді болуы үшін.' },
+              ],
+        en: [
+  { type: 'text', value: 'Eng: ' },
+      { type: 'link', text: 'Here ', url: '' },
+      { type: 'text', value: 'you’ll find behind-the-scenes moments: how we sketched, gathered materials, and brought the idea to life. Why we did it? To make tradition alive, accessible, and close to everyone.' }
+          ]      }
+    ]
   },
 ]
 
-interface ModalContentType {
-  id: number,
-  content: string
-}
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -117,7 +147,7 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
    <>
     <section className="bg-gradient-to-br from-[#F1F1F1] to-[#FEF9F4] relative h-[50vh] xs:h-[70vh] md:h-[85vh] w-full flex items-center justify-center overflow-hidden " style={{ fontFamily: "Playpen Sans, cursive" }}>
         <div className="z-50 relative">
-          <img src={logo} alt="logo. Korkem Tamyr" className="mx-auto bg-[#FEF9F4] rounded-full w-[250px] sm:w-[180px] md:w-[300px] lg:w-[350px]" />
+          <img src={logo} loading='lazy' alt="logo. Korkem Tamyr" className="mx-auto bg-[#FEF9F4] rounded-full w-[250px] sm:w-[180px] md:w-[300px] lg:w-[350px]" />
         </div>
       <div className="absolute inset-0 z-10">
         {figuresConfig.map((figure, index) => (
@@ -185,7 +215,26 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
               <Game id={game.id} icon={game.icon} bg={game.bg} onClick={openModal} giveIdToParent={findIdModal}/>  
           ))}
         </div>
-        <MyModal isOpen={isModalOpen} onClose={closeModalFromParent}><p className='text-black'>{modalContent?.content}</p></MyModal>
+        <MyModal isOpen={isModalOpen} onClose={closeModalFromParent}>
+            <div>
+              {modalContent?.content.map((languageBlock, blockIndex) => (
+                <div key={blockIndex} className="space-y-6">
+                  <div className="kz-content">
+                    {languageBlock.kz.map((item, index) => (
+                      <ModalContentComp item={item} key={index } stylesLink='text-blue-600 hover:text-blue-800 underline font-medium transition-colors duration-200 mx-1' stylesText='text-gray-800 text-lg leading-relaxed'/>
+                    ))}
+                  </div>
+                  
+                  <div className="en-content border-t border-gray-200 pt-4">
+                    {languageBlock.en.map((item, index) => (
+                      <ModalContentComp item={item} key={index} stylesLink='text-blue-500 hover:text-blue-700 underline font-medium transition-colors duration-200 mx-1' stylesText='text-gray-600 text-base leading-relaxed'/>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+         
+        </MyModal>
       </section>
       <section className="w-full h-[550px] xs:h-[600px] md:h-[800px] lg:h-[850px] relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl" style={{ fontFamily: "Shantell Sans, cursive" ,backgroundImage: `url(${podcastBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className='w-full z-[9999] flex flex-col items-center justify-start mt-10 px-3'>
