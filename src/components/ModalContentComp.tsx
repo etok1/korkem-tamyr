@@ -4,7 +4,7 @@ interface ModalContentCompProps {
   item: ContentItem;
   key?: string | number; 
   stylesText:string;
-   stylesLink:string
+   stylesLink:string;
 }
 
 export default function ModalContentComp({ item, key, stylesText, stylesLink }: ModalContentCompProps) {
@@ -22,7 +22,17 @@ export default function ModalContentComp({ item, key, stylesText, stylesLink }: 
       <a
         key={key}
         href={item.url}
-        download 
+        className={stylesLink}
+      >
+        {item.text}
+      </a>
+    )
+  }else if (item.type === 'downloadLink') {
+    return (
+      <a
+        key={key}
+        href={item.url}
+        download
         className={stylesLink}
       >
         {item.text}

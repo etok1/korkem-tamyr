@@ -88,7 +88,12 @@ interface LinkContent {
   url: string;
 }
 
-export type ContentItem = TextContent | LinkContent;
+interface DownloadLink {
+  type: "downloadLink";
+  text: string;
+  url: string;
+}
+export type ContentItem = TextContent | LinkContent | DownloadLink;
 
 interface LanguageContent {
   kz: ContentItem[];

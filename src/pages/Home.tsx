@@ -72,12 +72,12 @@ const contents:ModalContentType[] = [
       {
         kz: [
           { type: 'text', value: ' 1) KZ: Қазақы өрнектермен безендірілген тегін бояу кітабымызды ' },
-          { type: 'link', text: 'жүктеп алыңыз', url: '../assets/colouringBook.pdf' },
+          { type: 'downloadLink', text: 'жүктеп алыңыз', url: '../assets/colouringBook.pdf' },
           { type: 'text', value: '! Дәстүрді өз қолыңызбен түрлі түске бояп, жан бітіріңіз. ' },
         ],
         en: [
           { type: 'text', value: '1) English: ' },
-                { type: 'link', text: 'Download', url: '../assets/colouringBook.pdf' },
+                { type: 'downloadLink', text: 'Download', url: '../assets/colouringBook.pdf' },
       { type: 'text', value: ' our free coloring book inspired by Kazakh patterns! Bring tradition to life with your own colors.' }
         ]
       }
@@ -227,7 +227,7 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
                   
                   <div className="en-content border-t border-gray-200 pt-4">
                     {languageBlock.en.map((item, index) => (
-                      <ModalContentComp item={item} key={index} stylesLink='text-blue-500 hover:text-blue-700 underline font-medium transition-colors duration-200 mx-1' stylesText='text-gray-600 text-base leading-relaxed'/>
+                      <ModalContentComp item={item} key={index}  stylesLink='text-blue-500 hover:text-blue-700 underline font-medium transition-colors duration-200 mx-1' stylesText='text-gray-600 text-base leading-relaxed'/>
                     ))}
                   </div>
                 </div>
