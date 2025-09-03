@@ -1,17 +1,15 @@
-import logo from '../assets/logoWithName.svg'
-// import filmFlowerIcon from '../assets/bigFlowerIcon.svg'
+import logo from '../assets/svg/logoWithName.svg'
 import { Figures } from '../components/Figures';
 import { ellipseConfig, figuresConfig } from '../utils/data';
 import {Game} from '../components/Game';
-import bg1 from '../assets/game1.png'
-import bg2 from '../assets/game2.png'
-import bg3 from '../assets/game3.png'
-import podcastBg from '../assets/podcastBg.png'
-// import bgLogo  from '../assets/bgLogo.png'
+import bg1 from '../assets/images/game1.png'
+import bg2 from '../assets/images/game2.png'
+import bg3 from '../assets/images/game3.png'
+import podcastBg from '../assets/images/podcastBg.png'
 import { NavLink } from 'react-router-dom';
 import { MoveRight } from 'lucide-react';
 import { HistoryRow } from '../components/History';
-import bookCover from '../assets/bookCover.png'
+import bookCover from '../assets/images/bookCover.png'
 import SliderComponent from '../components/Slider/Slider';
 import NotAvailable from '../components/NotAvailable';
 import type {  historyType, ModalContentType } from '../utils/types';
@@ -159,8 +157,8 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
         <div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
           <div className='w-full md:w-1/2'>
             <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
-              <span className='text-greenColor'>Әлеуметтік-ағартушылық жоба</span>, 
-              болашақ ұрпаққа қазақтың <span className='text-greenColor'>тарихы мен мәдениетін</span> 
+              <span className='text-greenColor'>Әлеуметтік-ағартушылық жоба </span>, 
+              болашақ ұрпаққа қазақтың <span className='text-greenColor'>тарихы мен мәдениетін </span> 
               сақтап, жеткізу мақсатында құрылған. 📖
             </h2>
           </div>
@@ -171,7 +169,7 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
               балалар ұлттық мұрасын кішкентай кезінен білуі үшін.
             </p>
             <NavLink to={'/team'}><button className='border-2 border-greenColor text-greenColor font-semibold px-3 py-2 xs:px-4 xs:py-2 rounded-lg text-xs xs:text-sm sm:text-base md:text-sm hover:bg-greenColor hover:text-white transition-colors'>
-              Наша команда
+              Біздің тобымыз
             </button></NavLink>
           </div>
         </div>
@@ -209,7 +207,7 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
       </section>
       <section className='w-full h-[700px] xs:h-[850px] sm:h-[300px] md:h-[500px] bg-gradient-to-b from-skyBlue via-skyBlue to-white to-99% relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl px-3'  style={{  fontFamily: "Shantell Sans, cursive" }}>
         <h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>🎲 Ойындар 🎨</h2>
-        <p className='text-xs sm:text-sm md:text-base lg:text-lg text-blueColor mt-3 font-normal'>Игры для детей на основе казахской культуры и традиций</p>
+        <p className='text-xs sm:text-sm md:text-base lg:text-lg text-blueColor mt-3 font-normal'>Қазақ мәдениеті мен салт-дәстүріне негізделген балаларға арналған ойындар</p>
         <div className='flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-5 lg:gap-10 mt-10 md:mt-20'>
           {games.map((game) => (
               <Game id={game.id} icon={game.icon} bg={game.bg} onClick={openModal} giveIdToParent={findIdModal}/>  

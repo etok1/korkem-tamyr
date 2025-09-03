@@ -1,12 +1,12 @@
 import Member from "../components/Member"
-import member8 from '../assets/member8.png'
-import member7 from '../assets/member7.png'
-import member6 from '../assets/member6.png'
-import member5 from '../assets/member5.png'
-import member4 from '../assets/member4.png'
-import member3 from '../assets/member3.png'
-import member2 from '../assets/member2.png'
-import member1 from '../assets/member1.png'
+import member8 from '../assets/images/member8.png'
+import member7 from '../assets/images/member7.png'
+import member6 from '../assets/images/member6.png'
+import member5 from '../assets/images/member5.png'
+import member4 from '../assets/images/member4.png'
+import member3 from '../assets/images/member3.png'
+import member2 from '../assets/images/member2.png'
+import member1 from '../assets/images/member1.png'
 import { Figures } from "../components/Figures"
 import { circlesConfig } from "../utils/data"
 

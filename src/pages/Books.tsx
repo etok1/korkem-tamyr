@@ -1,7 +1,7 @@
-import engBook from '../assets/Kazakh_History_A_to_Z_Complete_Final( in English ).pdf'
-import engBookCover from '../assets/bookCover.png'
-import kzBook from '../assets/Kazakh History Book from A to Z( in Kazakh).pdf'
-import kzBookCover from '../assets/bookCover2.png'
+import engBook from '../assets/pdf/Kazakh_History_A_to_Z_Complete_Final( in English ).pdf'
+import engBookCover from '../assets/images/bookCover.png'
+import kzBook from '../assets/pdf/Kazakh History Book from A to Z( in Kazakh).pdf'
+import kzBookCover from '../assets/images/bookCover2.png'
 
 
  const circles = [

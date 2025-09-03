@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom';
 
 import { useRef, useState } from 'react';
 import { ArrowLeft, Pause, Play, RotateCcw, Volume, Volume1, Volume2 } from 'lucide-react';
-// import MyModal from '../components/Modal';
 import type { podcastProps } from '../utils/types';
 
 
@@ -11,14 +10,14 @@ interface PodcastListProps {
 }
 
 export default function Podcast({podcasts}: PodcastListProps) {
-    const { id } = useParams(); 
-      let numericId: number;
-    if(id) numericId = parseInt(id, 10)
+  const { id } = useParams(); 
+  let numericId: number;
+  if(id) numericId = parseInt(id, 10)
     
     
-    const podcast = podcasts.find(item => item.id === numericId);
+  const podcast = podcasts.find(item => item.id === numericId);
 
-     const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.8);

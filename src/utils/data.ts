@@ -1,20 +1,20 @@
-import pic1 from "../assets/article1.png";
-import pic2 from "../assets/article2.png";
-import pic3 from "../assets/article3.png";
-import pic4 from "../assets/article4.png";
-import pic5 from "../assets/article5.png";
-import pic6 from "../assets/article6.png";
-import pic7 from "../assets/article7.png";
-import pic8 from "../assets/article8.png";
-import pic9 from "../assets/article9.png";
-import audio1 from "../assets/podcast1.m4a";
-import audio2 from "../assets/podcast2.m4a";
-import audio3 from "../assets/podcast3.m4a";
-import audio4 from "../assets/podcast4.m4a";
-import logo1 from "../assets/podcast1.jpg";
-import logo2 from "../assets/podcast2.jpg";
-import logo3 from "../assets/podcast3.jpg";
-import logo4 from "../assets/podcast4.jpg";
+import pic1 from "../assets/images/article1.png";
+import pic2 from "../assets/images/article2.png";
+import pic3 from "../assets/images/article3.png";
+import pic4 from "../assets/images/article4.png";
+import pic5 from "../assets/images/article5.png";
+import pic6 from "../assets/images/article6.png";
+import pic7 from "../assets/images/article7.png";
+import pic8 from "../assets/images/article8.png";
+import pic9 from "../assets/images/article9.png";
+import audio1 from "../assets/audio/podcast1.m4a";
+import audio2 from "../assets/audio/podcast2.m4a";
+import audio3 from "../assets/audio/podcast3.m4a";
+import audio4 from "../assets/audio/podcast4.m4a";
+import logo1 from "../assets/images/podcast1.jpg";
+import logo2 from "../assets/images/podcast2.jpg";
+import logo3 from "../assets/images/podcast3.jpg";
+import logo4 from "../assets/images/podcast4.jpg";
 import type { NavigationItem } from "./types";
 export const figuresConfig = [
   {
@@ -246,11 +246,7 @@ export const navigation: NavigationItem[] = [
   },
   {
     name: "Мини Фильм",
-    link: "/#film",
-  },
-  {
-    name: "Игры",
-    link: "/games",
+    link: "/",
   },
   {
     name: "Подкасты",
@@ -266,7 +262,7 @@ export const navigation: NavigationItem[] = [
   },
   {
     name: "Muppet Show",
-    link: "/show",
+    link: "/",
   },
 ];
 
@@ -619,10 +615,6 @@ export const navigationFooter = [
     link: "/books",
   },
   {
-    name: "Ойындар ",
-    link: "/games",
-  },
-  {
     name: "Подкасты",
     link: "/podcasts",
   },
@@ -655,7 +647,7 @@ export const podcasts = [
     text: "дәстүрлі қазақ әуендерінен бастап, заманауи музыкалық бағыттарға дейінгі өзгерістер мен ықпалдарды қарастырамыз.",
     image: logo3,
     audio: audio3,
-    duration: "11:39",
+    duration: "32:39",
   },
   {
     id: 4,
@@ -663,6 +655,6 @@ export const podcasts = [
     text: "туған жер туралы аңызға негізделген әңгіме. Кішкентай ғана жердің түйірі халқымыздың тарихи жады мен рухани құндылықтарының символы ретінде суреттеледі.",
     image: logo4,
     audio: audio4,
-    duration: "32:39",
+    duration: "11:39",
   },
 ];

@@ -1,4 +1,4 @@
-import podcastLogo from '../assets/podcastLogo.png'
+import podcastLogo from '../assets/images/podcastLogo.png'
 import PodcastOption from '../components/PodcastOption'
 import { podcasts } from '../utils/data'
 

@@ -22,7 +22,7 @@ export default function PodcastOption({id, name, duration, text, image}:podcastP
                 <p className="text-[10px] md:w-[80%] lg:text-sm md:text-sm md:leading-6 line-clamp-2 xs:line-clamp-3 lg:leading-6 text-dustyPurple  mb-3 capitalize">{text}</p>
 
 <div className="flex items-center justify-center text-center bg-gradient-to-r from-nightBlue/90 to-[#0369A1] text-white px-3 py-1 rounded-xl  w-fit text-[10px] hover:shadow-lg transition-all duration-300 transform group-hover:translate-x-1">
-                <NavLink to={`/podcast/${id}`} className="flex items-center gap-2">
+                <NavLink to={`/podcast/${id}`} className="flex items-center gap-2 md:text-sm">
                     Listen now 
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
