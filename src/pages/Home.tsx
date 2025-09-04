@@ -16,6 +16,7 @@ import type {  historyType, ModalContentType } from '../utils/types';
 import { useEffect, useState } from 'react';
 import MyModal from '../components/Modal';
 import ModalContentComp from '../components/ModalContentComp';
+import tradKzIcon from '../assets/svg/tradKzIcon.svg'
 
 const games = [
   {
@@ -41,7 +42,7 @@ const games = [
 const history: historyType[] = [
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12  sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
     ),
     heading: 'Мәңгілік Мұра: Дәстүрлер',
     text: 'Ата-бабадан жалғасқан салт-дәстүрлер мен әдет-ғұрыптар, ұрпаққа рухани байлық сыйлайды.',
@@ -49,14 +50,14 @@ const history: historyType[] = [
   },
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]'   viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8"/><path d="M10 5H8a2 2 0 0 0 0 4h.68"/><path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8"/><path d="M14 5h2a2 2 0 0 1 0 4h-.68"/><path d="M18 22H6"/><path d="M9 2h6"/></svg>    ),
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]'   viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v5.632c0 .424-.272.795-.653.982A6 6 0 0 0 6 14c.006 4 3 7 5 8"/><path d="M10 5H8a2 2 0 0 0 0 4h.68"/><path d="M14 2v5.632c0 .424.272.795.652.982A6 6 0 0 1 18 14c0 4-3 7-5 8"/><path d="M14 5h2a2 2 0 0 1 0 4h-.68"/><path d="M18 22H6"/><path d="M9 2h6"/></svg>    ),
     heading: 'Шеберлік ізі: Дәстүрлі қолөнер',
     text: 'Көшпенділер шеберлерінің қолынан шыққан өнер туындылары мен олардың тарихы',
     link: '/history/traditions'
   },
   {
     icon: (
-<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 xs:w-10 xs:h-10 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>    ),
+<svg xmlns="http://www.w3.org/2000/svg" className='w-12 h-12 sm:w-14 sm:h-14 lg:w-[60px] lg:h-[60px]' viewBox="0 0 24 24" fill="none" stroke="#8C5E9F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>    ),
     heading: 'Дәм мен Дәстүр: Ұлттық тағамдар',
     text: 'Ұрпақтан ұрпаққа жеткен ұлттық ас мәзірі мен тағам дайындау өнері.',
     link: '/history/food'
@@ -253,13 +254,28 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
         <div className='z-[9999] flex flex-col items-center justify-center w-full px-3'>
           <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>📜 Тарих пен дәстүрлердің ерекшеліктері</h2>
           <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium leading-4 text-stone-500' >Қазақ мұрасының салт-дәстүрлері, мәдениеті мен ырымдары туралы көбірек білгіңіз келсе, біздің бөлімдерді қараңыз!</p>
-          <div className='flex items-center justify-between'>
-            
-          </div>
-          <div className='w-full flex flex-col items-center justify-center gap-10 mt-10 lg:mt-20'>{history.map((h) => (
+          
+          <div className='w-full flex flex-col items-center justify-center gap-7 mt-10 lg:mt-20'>{history.map((h) => (
              <HistoryRow icon={h.icon} heading={h.heading} text={h.text} link={h.link}/>
           ))}
+          {/* <div className='relative  flex items-center justify-between w-full'>
+                 
+          </div> */}
          </div>
+         <div className='absolute top-0 lg:top-32 left-0 lg:left-5 -z-10 opacity-25'>
+              <img 
+                src={tradKzIcon} 
+                alt="tradKzIcon" 
+                className='w-full h-full object-contain'
+              />
+            </div>
+            <div className='absolute top-0 lg:top-32 right-0 lg:right-5 -z-10 opacity-25'>
+                <img 
+                  src={tradKzIcon} 
+                  alt="tradKzIcon" 
+                  className='rotate-180'
+                />
+            </div>    
         </div>
       </section>
       <section className="w-full h-[250px] md:h-[400px] flex flex-col items-center justify-start gap-5 mb-16" style={{ fontFamily: "Shantell Sans, cursive"}}>

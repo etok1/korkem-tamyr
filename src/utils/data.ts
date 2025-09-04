@@ -620,7 +620,7 @@ export const navigationFooter = [
   },
   {
     name: "Muppet Show",
-    link: "/show",
+    link: "/",
   },
 ];
 
