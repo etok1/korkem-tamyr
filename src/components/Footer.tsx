@@ -11,7 +11,7 @@ export default function Footer(){
             <div className="max-w-[1200px] w-full h-full m-auto  flex flex-col items-center justify-between">
                 <div style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}>
                     <h2 className="text-lg lg:text-4xl font-extrabold text-skyBlue tracking-[0.2em]" >Korkem Tamyr</h2>
-                    <p className="text-xs lg:text-[15px] mt-0 lg:tracking-[0.15em] text-[#93AECA75] font-medium">Көркем тамыр — әр бала жүрегінде</p>
+                    <p className="text-xs lg:text-[15px] mt-0 lg:tracking-[0.15em] text-[#93AECA75] font-medium">Korkem Tamyr is in the heart of every child.</p>
                 </div>
                 <div className="flex flex-col sm:flex-row items-start justify-between w-full xs:w-[90%] text-left px-3">
                     <div className="text-dirtBlue">

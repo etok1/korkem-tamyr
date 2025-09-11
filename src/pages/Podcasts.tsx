@@ -10,10 +10,10 @@ export default function Podcasts(){
                 <img src={podcastLogo} loading='lazy' alt="podcasts section logo" className='max-w-[300px] w-full mt-5 md:mt-0 rounded-lg shadow-lg'/>
                 <div>
                     <h1 className="font-bold text-xl text-nightBlue mt-2 md:mt-0 lg:text-5xl" style={{ fontFamily: "Montserrat, sans-serif" }}>Korkem Tamyr podcasts</h1>
-                    <p className="text-blueColor text-sm font-medium mt-2 lg:mt-5">Біз бұл подкасттарды қазақ тілінде жазып, ана тіліміздің әуезін сақтап, мәдениетімізді жергілікті де, шетелдік те тыңдармандарға жеткізуді мақсат етеміз.</p>
-                </div>
-            </div>
-            <p  className='text-nightBlue text-xs font-light md:text-sm md:leading-6 leading-5 text-left mt-6 lg:mt-20 lg:text-lg border-l-2 border-l-skyBlue pl-4'>Біздің подкастарымыздың мақсаты – қазақ мәдениетін әртүрлі тыңдармандарға қолжетімді әрі түсінікті ету. Біз оларды әдейі қазақ тілінде жүргіземіз: шетелдіктер үшін бұл – тіліміздің әсем әуезін естіп, қазақтың бай мәдениетімен танысудың мүмкіндігі, ал жерлестеріміз үшін – өз мұрасын тереңірек тануға себеп. Осылайша подкастар тек дәстүр, музыка, сән мен аңыздар жайлы білім көзі ғана емес, мәдениеттер арасындағы диалогқа шақырушы құрал болып, тілді үйренуге және Қазақстанды жақыннан тануға ынталандырады.</p>
+<p className="text-blueColor text-sm font-medium mt-2 lg:mt-5">We produce these podcasts in the Kazakh language to preserve the beauty of our native tongue and share our culture with both local and international audiences.</p>
+</div>
+</div>
+<p className='text-nightBlue text-xs font-light md:text-sm md:leading-6 leading-5 text-left mt-6 lg:mt-20 lg:text-lg border-l-2 border-l-skyBlue pl-4'>The goal of our podcasts is to make Kazakh culture accessible and understandable to diverse audiences. We intentionally conduct them in Kazakh: for international listeners, this is an opportunity to hear the beautiful sound of our language and become acquainted with the rich Kazakh culture, while for our compatriots, it's a chance to deepen their understanding of their own heritage. Thus, the podcasts serve not only as a source of knowledge about traditions, music, fashion, and legends but also as an invitation to intercultural dialogue, encouraging language learning and fostering a closer connection to Kazakhstan.</p>
             <div className='mt-5 lg:mt-10'>
                 <div className='flex flex-row gap-3'>
                     {[...Array(3)].map((_, index) => (

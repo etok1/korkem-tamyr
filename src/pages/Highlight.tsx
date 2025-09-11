@@ -56,7 +56,7 @@ export default function Highlights({articles}:{ articles: ArticleGroup[] }){
             
           <div className="mt-12 pt-6 border-t border-gray-100 text-center">
             <p className="text-sm text-gray-500">
-              Ұлттық мәдени мұра — ұрпақтар сабақтастығының кепілі
+              National cultural heritage is the guarantor of the continuity of generations.
             </p>
           </div>
         </div>

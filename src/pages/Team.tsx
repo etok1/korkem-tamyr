@@ -90,7 +90,7 @@ export default function Team(){
         <>
         <section className=" relative" >
             <h1 className="text-lg xs:text-xl sm:text-3xl font-bold lg:text-5xl text-purple-700 m-12"  style={{  fontFamily: "Playpen Sans, cursive" }}>
-                <span className="animate-wiggle">🌟</span> Наша команда! <span className="animate-wiggle">🌟</span>
+                <span className="animate-wiggle">🌟</span> Our team! <span className="animate-wiggle">🌟</span>
             </h1>
             <div className="max-w-[1400px] w-full m-auto flex flex-wrap items-center justify-center gap-10 mt-10 xs:mt-14 z-50 px-3 md:mt-20 mb-10">
                 {members.map((member) => (
