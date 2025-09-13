@@ -1,6 +1,6 @@
 import logo from '../assets/svg/logoWithName.svg'
 import { Figures } from '../components/Figures';
-import { ellipseConfig, figuresConfig } from '../utils/data';
+import { contents, ellipseConfig, figuresConfig } from '../utils/data';
 import {Game} from '../components/Game';
 import bg1 from '../assets/images/game1.png'
 import bg2 from '../assets/images/game2.png'
@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import MyModal from '../components/Modal';
 import ModalContentComp from '../components/ModalContentComp';
 import tradKzIcon from '../assets/svg/tradKzIcon.svg'
-
+import { motion } from 'framer-motion';
 const games = [
   {
     id: 1,
@@ -66,60 +66,13 @@ const history: historyType[] = [
   },
 ]
 
-const contents:ModalContentType[] = [
-  {
-    id: 1,
-    content: [
-      {
-        kz: [
-          { type: 'text', value: ' 1) KZ: Қазақы өрнектермен безендірілген тегін бояу кітабымызды ' },
-          { type: 'downloadLink', text: 'жүктеп алыңыз', url: '../assets/colouringBook.pdf' },
-          { type: 'text', value: '! Дәстүрді өз қолыңызбен түрлі түске бояп, жан бітіріңіз. ' },
-        ],
-        en: [
-          { type: 'text', value: '1) English: ' },
-                { type: 'downloadLink', text: 'Download', url: '../assets/colouringBook.pdf' },
-      { type: 'text', value: ' our free coloring book inspired by Kazakh patterns! Bring tradition to life with your own colors.' }
-        ]
-      }
-    ]
-  },
-  {
-    id: 2,
-    content: [
-      {
-        kz: [
-                { type: 'text', value: 'KZ : Бұл жоба қазақ мәдениетінің сұлулығын қазіргі заманға сай түрде жеткізу мақсатымен дүниеге келді.  Біз үшін тарих пен дәстүр тек оқулықтарда ғана емес, күнделікті өмірде де көрініс табуы керек: суреттерде, ойындарда, фотосуреттерде – қуаныш пен шабыт сыйлайтын сәттерде. Осындай материалдар арқылы біз ұрпақтарды жақындастыруды қалаймыз: балалар шығармашылықпен мәдениетті таныса, ересектер мақтаныш пен сағыныш сезімін қайта тапса дейміз.' },
-        ],
-        en: [
-            { type: 'text', value: 'Eng: This project was born from a desire to preserve and share the beauty of Kazakh culture in a modern way. We believe that history and tradition should live not only in textbooks, but also in everyday life — in drawings, games, photographs, and the little things that spark joy and inspiration. Through these materials, we hope to connect generations: children can discover culture through creativity, while adults can rediscover pride and nostalgia.' },]
-      }
-    ]
-  },
-  {
-    id: 3,
-    content: [
-      {
-        kz: [
-{ type: 'text', value: 'KZ:' },
-      { type: 'link', text: 'Мұнда ', url: '' },
-      { type: 'text', value: 'біз жасаған жұмыстардың артындағы сәттер: сурет салу, материал жинау, идеяны жүзеге асыру барысы. Неге бұлай істедік? Себебі дәстүр тірі болып, әр адамға жақын әрі қолжетімді болуы үшін.' },
-              ],
-        en: [
-  { type: 'text', value: 'Eng: ' },
-      { type: 'link', text: 'Here ', url: '' },
-      { type: 'text', value: 'you’ll find behind-the-scenes moments: how we sketched, gathered materials, and brought the idea to life. Why we did it? To make tradition alive, accessible, and close to everyone.' }
-          ]      }
-    ]
-  },
-]
 
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 const [idModal, setIdModal] = useState(0)
 const [modalContent, setModalContent] = useState<ModalContentType>()
-  
+
 
   const findIdModal = (id:number) => {
     setIdModal(id);
@@ -156,8 +109,12 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
         ))}
       </div>
     </section>
-      <section className='w-full bg-gradient-to-r h-[400px] xs:h-[450px] md:h-[55vh] from-paleGreen to-[#C5CC82] flex items-center justify-center text-center md:text-left z-[9999]' style={{  fontFamily: "Balsamiq Sans, sans-serif" }}>
-        <div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
+       <section className='w-full bg-gradient-to-r h-[400px] xs:h-[450px] md:h-[55vh] from-paleGreen to-[#C5CC82] flex items-center justify-center text-center md:text-left z-[9999]' style={{  fontFamily: "Balsamiq Sans, sans-serif" }}>
+        <motion.div  initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    ><div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
           <div className='w-full md:w-1/2'>
             <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
               <span className='text-greenColor'>A socio-educational project </span>,
@@ -174,7 +131,7 @@ so that children can learn about their national heritage from an early age.
               Our team
             </button></NavLink>
           </div>
-        </div>
+        </div></motion.div>
       </section>
       <section className=' w-full h-[350px]  md:h-[500px] bg-lightYellow relative flex items-center justify-center'  style={{  fontFamily: "Shantell Sans, cursive" }} >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='absolute top-[-10%] xs:top-[-20%] ss:top-[-25%] sm:top-[-30%] md:top-[-18%] lg:top-[-20%] xl:top-[-30%] z-0'>
@@ -188,14 +145,18 @@ so that children can learn about their national heritage from an early age.
           <Figures type={ellipse.type} color={ellipse.color} />
         </div>
         ))}   
-        <div className='max-w-[1200px] flex items-start justify-between w-full px-5 py-[120px] z-[9999] gap-[5%] sm:justify-center'>
+        <motion.div  initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }} className='z-[9999]'
+    ><div className='max-w-[1200px] flex items-start justify-between w-full px-5 py-[120px]  gap-[5%] sm:justify-center'>
           <div className='w-1/3 h-full sm:w-[150px] lg:w-[250px] bg-gray-900'><img src={bookCover} alt="bookCover" className='w-full h-full'/></div>
           <div className='w-2/3 h-full text-left flex flex-col items-start justify-between'>
             <h2 className='text-xs xs:text-base sm:text-xl md:text-lg lg:text-4xl font-bold text-pigPink mb-2 md:mb-4'>📚 Books for Children</h2> 
             <p className='text-[#6D6D6D] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>Download and read our two free children's books, "Kazakh History from A to Z" (available in Kazakh and English). These books cover various prominent figures from Kazakh history. From Abai Kunanbayuly to Manshuk Mametova, these books can serve as an introduction to Kazakh history for young readers. Order your free copy today!</p>
-            <NavLink to={'/books'}><button className='text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 rounded-2xl hover:bg-coralColor transition-all duration-150 ease-in '  style={{  fontFamily: "Shantell Sans, cursive" }}>Жүктеп алу</button></NavLink>
+            <NavLink to={'/books'}><button className='text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 rounded-2xl hover:bg-coralColor transition-all duration-150 ease-in '  style={{  fontFamily: "Shantell Sans, cursive" }}>Download</button></NavLink>
           </div>  
-        </div> 
+        </div> </motion.div>
       </section>
       <section className='w-full h-[300px] md:h-[300px] lg:h-[400px] bg-[#FAFAFA] flex flex-col items-center justify-center my-5 gap-4' style={{  fontFamily: "Shantell Sans, cursive" }}>
         {/* <div className='w-[100vw] h-full absolute bottom-0 flex items-end justify-between z-0 px-3'>
@@ -253,14 +214,18 @@ so that children can learn about their national heritage from an early age.
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  className='absolute top-[-12%] xs:top-[-15%] sm:top-[-22%] md:top-[-25%] xl:top-[-35%] z-0'><path fill="#CA9FDD" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,106.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         <div className='z-[9999] flex flex-col items-center justify-center w-full px-3'>
           <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>📜 Features of History and Traditions</h2> <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium leading-4 text-stone-500'>If you want to learn more about the customs, culture, and traditions of Kazakh heritage, check out our sections!</p>
-          
+          <motion.div
+       initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    >
           <div className='w-full flex flex-col items-center justify-center gap-7 mt-10 lg:mt-20'>{history.map((h) => (
              <HistoryRow icon={h.icon} heading={h.heading} text={h.text} link={h.link}/>
           ))}
-          {/* <div className='relative  flex items-center justify-between w-full'>
-                 
-          </div> */}
+          
          </div>
+         </motion.div>
          <div className='absolute top-0 lg:top-32 left-0 lg:left-5 -z-10 opacity-25'>
               <img 
                 src={tradKzIcon} 

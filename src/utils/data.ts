@@ -15,7 +15,7 @@ import logo1 from "../assets/images/podcast1.jpg";
 import logo2 from "../assets/images/podcast2.jpg";
 import logo3 from "../assets/images/podcast3.jpg";
 import logo4 from "../assets/images/podcast4.jpg";
-import type { NavigationItem } from "./types";
+import type { ModalContentType, NavigationItem } from "./types";
 export const figuresConfig = [
   {
     type: "cloud",
@@ -656,5 +656,90 @@ export const podcasts = [
     image: logo4,
     audio: audio4,
     duration: "11:39",
+  },
+];
+
+export const contents: ModalContentType[] = [
+  {
+    id: 1,
+    content: [
+      {
+        kz: [
+          {
+            type: "text",
+            value:
+              " 1) KZ: Қазақы өрнектермен безендірілген тегін бояу кітабымызды ",
+          },
+          {
+            type: "downloadLink",
+            text: "жүктеп алыңыз",
+            url: "../assets/colouringBook.pdf",
+          },
+          {
+            type: "text",
+            value: "! Дәстүрді өз қолыңызбен түрлі түске бояп, жан бітіріңіз. ",
+          },
+        ],
+        en: [
+          { type: "text", value: "1) English: " },
+          {
+            type: "downloadLink",
+            text: "Download",
+            url: "../assets/colouringBook.pdf",
+          },
+          {
+            type: "text",
+            value:
+              " our free coloring book inspired by Kazakh patterns! Bring tradition to life with your own colors.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    content: [
+      {
+        kz: [
+          {
+            type: "text",
+            value:
+              "KZ : Бұл жоба қазақ мәдениетінің сұлулығын қазіргі заманға сай түрде жеткізу мақсатымен дүниеге келді.  Біз үшін тарих пен дәстүр тек оқулықтарда ғана емес, күнделікті өмірде де көрініс табуы керек: суреттерде, ойындарда, фотосуреттерде – қуаныш пен шабыт сыйлайтын сәттерде. Осындай материалдар арқылы біз ұрпақтарды жақындастыруды қалаймыз: балалар шығармашылықпен мәдениетті таныса, ересектер мақтаныш пен сағыныш сезімін қайта тапса дейміз.",
+          },
+        ],
+        en: [
+          {
+            type: "text",
+            value:
+              "Eng: This project was born from a desire to preserve and share the beauty of Kazakh culture in a modern way. We believe that history and tradition should live not only in textbooks, but also in everyday life — in drawings, games, photographs, and the little things that spark joy and inspiration. Through these materials, we hope to connect generations: children can discover culture through creativity, while adults can rediscover pride and nostalgia.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    content: [
+      {
+        kz: [
+          { type: "text", value: "KZ:" },
+          { type: "link", text: "Мұнда ", url: "" },
+          {
+            type: "text",
+            value:
+              "біз жасаған жұмыстардың артындағы сәттер: сурет салу, материал жинау, идеяны жүзеге асыру барысы. Неге бұлай істедік? Себебі дәстүр тірі болып, әр адамға жақын әрі қолжетімді болуы үшін.",
+          },
+        ],
+        en: [
+          { type: "text", value: "Eng: " },
+          { type: "link", text: "Here ", url: "" },
+          {
+            type: "text",
+            value:
+              "you’ll find behind-the-scenes moments: how we sketched, gathered materials, and brought the idea to life. Why we did it? To make tradition alive, accessible, and close to everyone.",
+          },
+        ],
+      },
+    ],
   },
 ];

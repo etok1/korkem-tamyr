@@ -1,12 +1,17 @@
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import type { memberType } from "../utils/types";
-
+import { motion } from 'framer-motion';
 
 
 export default function Member({image, name, position, color, circleColor, nickname, link}:memberType){
     return(
-        <div className="md:max-w-[400px] md:max-h-[534px] h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 ease-in-out" style={{  fontFamily: "Shantell Sans, cursive" }}>
+         <motion.div
+       initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    ><div className="md:max-w-[400px] md:max-h-[534px] h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-200 ease-in-out" style={{  fontFamily: "Shantell Sans, cursive" }}>
             <div className="md:max-w-[400px] md:max-h-[400px] h-full relative overflow-hidden group">
                 <img src={image} loading='lazy' alt={name} className="group-hover:scale-105 transition-all duration-150 "/>
                 <div className="absolute py-1 px-2 group-hover:px-3 rounded-xl bg-headerWhite z-50 bottom-3 left-3  flex flex-row items-center justify-center w-max group "  style={{  fontFamily: "Playpen Sans, cursive" }}>
@@ -23,5 +28,6 @@ export default function Member({image, name, position, color, circleColor, nickn
                 <div className="absolute left-5 bottom-9 w-[25px] h-[25px] rounded-full" style={{ backgroundColor: circleColor }} ></div>
             </div>
         </div>
+        </motion.div>
     )
 }

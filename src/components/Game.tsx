@@ -1,7 +1,14 @@
+import { motion } from "framer-motion";
 import type { GamesType } from "../utils/types";
 
 export function Game({ id, icon, bg, onClick, giveIdToParent }:GamesType) {
   return (
+    <motion.div
+       initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    >
       <div onClick={() => {
         onClick()
         giveIdToParent(id)
@@ -15,6 +22,6 @@ export function Game({ id, icon, bg, onClick, giveIdToParent }:GamesType) {
         <div className='relative z-10 w-16 h-16 xs:w-20 xs:h-20 md:w-24 md:h-24 flex items-center justify-center'>
           {icon}
         </div>
-      </div>
+      </div></motion.div>
   );
 }

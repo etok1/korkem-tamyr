@@ -2,6 +2,7 @@ import engBook from '../assets/pdf/Kazakh_History_A_to_Z_Complete_Final( in Engl
 import engBookCover from '../assets/images/bookCover.png'
 import kzBook from '../assets/pdf/Kazakh History Book from A to Z( in Kazakh).pdf'
 import kzBookCover from '../assets/images/bookCover2.png'
+import { motion } from 'framer-motion';
 
 
  const circles = [
@@ -59,7 +60,13 @@ export default function Books(){
             </div> 
             <svg xmlns="http://www.w3.org/2000/svg"  className="absolute top-[10%] xs:top-[8%] sm:top-[7%] md:top-[5%] lg:top-[6%] xl:top-[2%] 2xl:top-[-4%] z-0" viewBox="0 0 1440 320"><path fill="#8C5E9F" fill-opacity="1" d="M0,128L48,122.7C96,117,192,107,288,117.3C384,128,480,160,576,165.3C672,171,768,149,864,128C960,107,1056,85,1152,69.3C1248,53,1344,43,1392,37.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
             <div className="flex flex-wrap items-center justify-center bg-purpleColor h-full mt-32 pb-20 pt-10 gap-10 z-50">
-                <div className="w-full flex flex-wrap  items-center justify-center px-3 gap-10 md:gap-16 md:justify-center xs:justify-evenly ">
+                  <motion.div
+       initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    >
+        <div className="w-full flex flex-wrap  items-center justify-center px-3 gap-10 md:gap-16 md:justify-center xs:justify-evenly ">
                     <div className="flex flex-wrap justify-center gap-6 md:gap-16 lg:gap-20 px-4 sm:px-0">
                         <div className="w-[280px] h-[470px]  rounded-2xl shadow-lg hover:shadow-xl overflow-hidden group transition-all duration-300 flex flex-col z-50">
                             <div className="relative flex-1 overflow-hidden">
@@ -102,7 +109,7 @@ export default function Books(){
                             </div>
                         </div>
                     </div>
-                </div>
+                </div></motion.div>
             </div>
               {circles.map((circle, index)=> (
                             <div key={index} className={`absolute transform z-10 ${circle.className}`}>
