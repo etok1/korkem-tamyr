@@ -37,7 +37,21 @@ export default function MyModal({ isOpen, onClose, children }:ModalProps) {
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {children}
-                  <button onClick={onClose} className='text-black'>Close</button>
+                  <button 
+    onClick={onClose} 
+    className="
+      text-white 
+ bg-blue-600 
+      hover:bg-blue-700 
+      px-4 
+      py-2 
+      rounded-lg 
+      font-medium 
+      transition-colors 
+      duration-200 
+      mt-4
+    "
+  >Close</button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
