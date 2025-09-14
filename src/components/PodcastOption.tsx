@@ -1,5 +1,6 @@
 // import { formattedText } from "../utils/formatText";
 
+import { motion } from "framer-motion"
 import { NavLink } from "react-router-dom"
 
 interface podcastProps{
@@ -13,7 +14,11 @@ interface podcastProps{
 export default function PodcastOption({id, name, duration, text, image}:podcastProps){
 
     return(
-<div className="bg-gradient-to-br from-white via-lavenderColor/5 to-lavenderColor/20 text-nightBlue flex flex-row p-5 md:p-7 max-w-[1100px] w-full mx-auto text-left gap-5 md:gap-7 lg:gap-9 cursor-pointer border border-gray-100 shadow-md group hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 ease-out rounded-xl" style={{ fontFamily: "Balsamiq Sans, sans-serif" }}>             <div className="w-16 h-16 xs:w-20 xs:h-20 md:w-24 md:h-24 lg:w-[150px] lg:h-[150px] overflow-hidden flex-shrink-0 rounded-lg">
+<motion.div  initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5 }}
+    ><div className="bg-gradient-to-br from-white via-lavenderColor/5 to-lavenderColor/20 text-nightBlue flex flex-row p-5 md:p-7 max-w-[1100px] w-full mx-auto text-left gap-5 md:gap-7 lg:gap-9 cursor-pointer border border-gray-100 shadow-md group hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 ease-out rounded-xl" style={{ fontFamily: "Balsamiq Sans, sans-serif" }}>             <div className="w-16 h-16 xs:w-20 xs:h-20 md:w-24 md:h-24 lg:w-[150px] lg:h-[150px] overflow-hidden flex-shrink-0 rounded-lg">
                 <img src={image} loading='lazy' alt={name} className="w-full h-full object-cover block group-hover:scale-105 transition-all duration-150 ease-in-out" />
             </div>
             <div className="flex flex-col justify-between flex-1">
@@ -29,16 +34,10 @@ export default function PodcastOption({id, name, duration, text, image}:podcastP
                     </svg>
                 </NavLink>
             </div>
-            
-            {/* <div className="md:hidden flex items-center gap-1 text-[#0369A1] font-medium text-sm py-2 px-3 bg-[#0369A1]/10 rounded-lg">
-                <NavLink to={`/podcast/${id}`} className="flex items-center gap-1">
-                    Listen
-                    <span>→</span>
-                </NavLink>
-            </div> */}
+
             
             </div>
             
-        </div>
+        </div></motion.div>
     )
 }
