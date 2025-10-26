@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../public/logo.png'; 
 import { ChevronDown, Instagram } from 'lucide-react';
 import { navigation } from '../../utils/data';
+import { useLanguage } from '../../utils/context';
 
 interface mediaProps{
     name: string,
@@ -9,8 +10,6 @@ interface mediaProps{
     icon: React.ReactNode
 }
 
-export default function DesktopHeader() {
-   
 const media:mediaProps[] = [
     {
         name: 'instagram link',
@@ -19,6 +18,12 @@ const media:mediaProps[] = [
     },
 ]
 
+export default function DesktopHeader() {
+   const {language, setLanguage} = useLanguage()
+
+        const handleLanguageChange = (newLanguage: 'en' | 'kz') => {
+            setLanguage(newLanguage);
+        };
     //  {
     //     name: 'youtube link',
     //     link: '/', 
@@ -36,13 +41,13 @@ const media:mediaProps[] = [
             </div>
             <nav>
                 <ul className='flex flex-row items-center md:gap-5 xl:gap-8'>
-                    {navigation.map((nav) => (
+                    {navigation[language].map((nav) => (
                     <li key={nav.name} className="group text-nightBlue font-sansPT font-bold text-sm no-underline py-5 block relative  " aria-label={nav.name}>
                         <NavLink 
                         to={nav.link || '/'} 
                         className="flex items-center justify-center gap-1 relative hover:bg-nightBlue  hover:text-white px-2 py-2 rounded-xl"
                         >
-                        {nav.name} {nav.name === 'Ерекшеліктері' ? <ChevronDown className={`transition-transform duration-200 group-hover:rotate-180`}/> : ''}
+                        {nav.name} {nav.name === 'Ерекшеліктері'|| nav.name === 'Highlights' ? <ChevronDown className={`transition-transform duration-200 group-hover:rotate-180`}/> : ''}
                         </NavLink>
                         
                         {nav.dropdown && (
@@ -63,9 +68,24 @@ const media:mediaProps[] = [
                         )}
                     </li>
                     ))}
+                    <div className='flex flex-col items-center text-black'>
+                        <button 
+                            className={`${language === 'en' ? 'font-bold text-nightBlue' : 'text-gray-500'} border-b-2 border-gray-300`} 
+                            onClick={() => handleLanguageChange('en')}
+                        >
+                            EN
+                        </button>
+                        <button 
+                            className={`${language === 'kz' ? 'font-bold text-nightBlue' : 'text-gray-500'}`} 
+                            onClick={() => handleLanguageChange('kz')}
+                        >
+                            KZ
+                        </button>
+                    </div>
                 </ul>
+            
             </nav>
-        
+            
    </header>
   );
 }

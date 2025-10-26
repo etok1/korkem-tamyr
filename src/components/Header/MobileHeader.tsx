@@ -3,6 +3,7 @@ import logo from '../../../public/logo.png';
 import { ChevronDown, Instagram, Menu, X,  } from 'lucide-react';
 import { navigation } from '../../utils/data';
 import { NavLink, useLocation } from 'react-router-dom';
+import { useLanguage } from '../../utils/context';
 
 const media = [
     {
@@ -23,6 +24,11 @@ export default function MobileHeader() {
    const menuRef = useRef<HTMLDivElement>(null)
    const [openDropDown, setOpenDropDown] = useState<boolean>(false)
  const location = useLocation();
+ const {language, setLanguage} = useLanguage()
+ 
+         const handleLanguageChange = (newLanguage: 'en' | 'kz') => {
+             setLanguage(newLanguage);
+         };
    useEffect(() => {
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,15 +52,30 @@ useEffect(() => {
   return (
    <header className='lg:hidden flex h-[80px] px-10 py-5 bg-headerWhite relative' style={{ fontFamily: "Playpen Sans, cursive" }}>
       <div className="flex items-center justify-between w-full">
-        <NavLink to='/'><img src={logo} alt="logo" width={100} className='w-[70px]'/></NavLink>
+       <div className='flex items-center gap-2'> <NavLink to='/'><img src={logo} alt="logo" width={100} className='w-[70px]'/></NavLink><div className='flex flex-col items-center text-black'>
+                        <button 
+                            className={`${language === 'en' ? 'font-bold text-nightBlue' : 'text-gray-500'} text-xs border-b-2 border-gray-300`} 
+                            onClick={() => handleLanguageChange('en')}
+                        >
+                            EN
+                        </button>
+                        <button 
+                            className={`${language === 'kz' ? 'font-bold text-nightBlue' : 'text-gray-500'} text-xs`} 
+                            onClick={() => handleLanguageChange('kz')}
+                        >
+                            KZ
+                        </button>
+                    </div>
+        </div>
         <button onClick={handleOpen} aria-label="Toggle menu">{isOpen ? <X color='#1E3A8A' width={30} height={30}/> : <Menu color='#1E3A8A' />}</button>
+        
       </div>
 
       <div ref={menuRef} className={`${isOpen ? 'flex' : 'hidden'} flex-col absolute top-full left-0 w-full z-[9999] bg-headerWhite`}>
         <nav className='w-full flex m-5 '>
           <ul className='flex flex-col items-start w-full'>
-            {navigation.map((nav) => (
-              <li key={nav.name} className="group text-nightBlue font-sansPT font-bold text-sm no-underline block w-full" onClick={() => nav.name === 'Ерекшеліктері' ? setOpenDropDown(!openDropDown) : ''} aria-label={nav.name}>
+            {navigation[language].map((nav) => (
+              <li key={nav.name} className="group text-nightBlue font-sansPT font-bold text-sm no-underline block w-full" onClick={() => nav.name === 'Highlights' || nav.name === 'Ерекшеліктері' ? setOpenDropDown(!openDropDown) : ''} aria-label={nav.name}>
                 <div className="flex items-center justify-between w-fit">
                   <NavLink 
                     to={nav.link || '/'} 
@@ -63,7 +84,7 @@ useEffect(() => {
                     {nav.name}
                     
                   </NavLink>
-                  {nav.name === 'Ерекшеліктері' ? <ChevronDown className={`transition-transform duration-200 ${openDropDown ? 'rotate-180' : 'rotate-0'}`}/> : ''}
+                  {nav.name === 'Highlights'|| nav.name === 'Ерекшеліктері' ? <ChevronDown className={`transition-transform duration-200 cursor-pointer ${openDropDown ? 'rotate-180' : 'rotate-0'}`}/> : ''}
                 </div>
                 {nav.dropdown && (
                   <div className={` ${openDropDown ? 'block' : 'hidden'} w-fit rounded-md ml-5`}>
@@ -83,6 +104,7 @@ useEffect(() => {
                 )}
               </li>
             ))}
+            
           </ul>
         </nav>
         <div className='w-fit flex items-center justify-center gap-4 m-5 mt-2'>

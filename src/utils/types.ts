@@ -104,3 +104,14 @@ export interface ModalContentType {
   id: number;
   content: LanguageContent[];
 }
+
+export interface headerProps {
+  language: "en" | "kz";
+  handleChangeFunc: (lang: "en" | "kz") => void;
+}
+
+type LanguageType = "en" | "kz";
+
+export interface LanguageProps {
+  language: LanguageType;
+}

@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom"
 import Article from "../components/Article"
 import { articles } from "../utils/data"
+import { useLanguage } from "../utils/context";
+
 
 export default function Articles(){
-
+const { language } = useLanguage();
 const {categoryId} = useParams()
 
-const categoryData = articles.find(article => article.id === categoryId)
+const categoryData = articles[language].find(article => article.id === categoryId)
 console.log(categoryData) 
     console.log(categoryId) 
     return(

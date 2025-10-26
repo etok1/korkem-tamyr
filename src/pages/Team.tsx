@@ -1,4 +1,6 @@
 import Member from "../components/Member"
+import member10 from '../assets/images/member10.png'
+import member9 from '../assets/images/member9.png'
 import member8 from '../assets/images/member8.png'
 import member7 from '../assets/images/member7.png'
 import member6 from '../assets/images/member6.png'
@@ -49,12 +51,12 @@ const members = [
     },    
     {
         image: member5,
-        name: 'Mariyam',
-        position: 'Social Media & Visual, Culture Assistant',
-        color: '#F49AA2',
-        circleColor: '#FF687530',
-        nickname: 'klbtr_m',
-        link: 'https://www.instagram.com/klbtr_m?igsh=ZHI5emh6bXFubW8y'
+        name: 'Batyrkhan',
+        position: 'Lead Composer & Music Director',
+        color: '#1E3A8A',
+        circleColor: '#1E3A8A30',
+        nickname: 'batyrkhan_osp',
+        link: 'https://www.instagram.com/batyrkhan_osp?igsh=cWdwcTdrMXZ5eWdw'
     },    
     {
         image: member6,
@@ -82,6 +84,23 @@ const members = [
         circleColor: '#97A13B30',
         nickname: 'iko.armm',
         link: 'https://www.instagram.com/iko.armn?igsh=NmQxb2x1amNwZ2I0'
+    },{
+        image: member9,
+        name: 'Malika',
+        position: 'Toy Design Specialist',
+        color: '#E4405F',
+        circleColor: '#E4405F30',
+        nickname: 'malya_abd',
+        link: 'https://www.instagram.com/malya_abd?igsh=MTNuMXY0aW5pZ3UxbQ=='
+    },    
+    {
+        image: member10,
+        name: 'Alexandra',
+        position: 'Toy Design Specialist',
+        color: '#F49AA2',
+        circleColor: '#F49AA230',
+        nickname: 'iko.armm',
+        link: 'https://www.instagram.com/a.rkhnva?igsh=YjdlN281NDI5cng2'
     },
 ]
 
@@ -89,8 +108,8 @@ export default function Team(){
     return(
         <>
         <section className=" relative" >
-            <h1 className="text-lg xs:text-xl sm:text-3xl font-bold lg:text-5xl text-purple-700 m-12"  style={{  fontFamily: "Playpen Sans, cursive" }}>
-                <span className="animate-wiggle">🌟</span> Our team! <span className="animate-wiggle">🌟</span>
+            <h1 className="text-lg xs:text-xl sm:text-3xl font-bold lg:text-5xl text-nightBlue m-12 text-shadow-lg"   style={{  fontFamily: "Playpen Sans, cursive" }}>
+                <span className="animate-wiggle ">🌟</span> Our team! <span className="animate-wiggle">🌟</span>
             </h1>
             <div className="max-w-[1400px] w-full m-auto flex flex-wrap items-center justify-center gap-10 mt-10 xs:mt-14 z-50 px-3 md:mt-20 mb-10">
                 {members.map((member) => (

@@ -18,6 +18,7 @@ import MyModal from '../components/Modal';
 import ModalContentComp from '../components/ModalContentComp';
 import tradKzIcon from '../assets/svg/tradKzIcon.svg'
 import { motion } from 'framer-motion';
+import { useLanguage } from '../utils/context';
 const games = [
   {
     id: 1,
@@ -70,9 +71,9 @@ const history: historyType[] = [
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-const [idModal, setIdModal] = useState(0)
-const [modalContent, setModalContent] = useState<ModalContentType>()
-
+  const [idModal, setIdModal] = useState(0)
+  const [modalContent, setModalContent] = useState<ModalContentType>()
+const { language } = useLanguage();
 
   const findIdModal = (id:number) => {
     setIdModal(id);
@@ -116,20 +117,26 @@ const [modalContent, setModalContent] = useState<ModalContentType>()
         transition={{ duration: 0.5 }}
     ><div className='max-w-[1000px] w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-6 lg:gap-10 px-4 sm:px-6'>
           <div className='w-full md:w-1/2'>
-            <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
-              <span className='text-greenColor'>A socio-educational project </span>,
-established with the goal of preserving and conveying <span className='text-greenColor'>the history and culture</span> of the Kazakh people to future generations. 📖
-            </h2>
+            {language === 'kz' ? 
+              <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
+                <span className='text-greenColor'>Әлеуметтік-ағартушылық жоба,</span>,
+  eболашақ ұрпаққа қазақтың <span className='text-greenColor'>тарихы мен мәдениетін</span>  сақтап, жеткізу мақсатында құрылған. 📖
+              </h2> :
+              <h2 className=' font-bold text-sm xs:text-lg sm:text-xl md:text-[22px] lg:text-3xl leading-7 sm:leading-[1.4] md:leading-[1.5] lg:leading-10'>
+                <span className='text-greenColor'>A socio-educational project </span>,
+  established with the goal of preserving and conveying <span className='text-greenColor'>the history and culture</span> of the Kazakh people to future generations. 📖
+              </h2>
+            }
           </div>
 
           <div className='w-full xs:w-2/3 md:w-1/2 flex flex-col items-center md:items-start gap-4 md:gap-6'>
+            
             <p className='text-gray-500 font-medium text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-6 sm:leading-[1.6] lg:leading-10'>
-              We provide free developmental materials for kindergartens,
-so that children can learn about their national heritage from an early age.
+              {language === 'en' ? 'We provide free developmental materials for kindergartens, so that children can learn about their national heritage from an early age.' : 'Біз балабақшаларға арналған тегін дамытушы материалдар ұсынамыз, балалар ұлттық мұрасын кішкентай кезінен білуі үшін.'}
             </p>
             <NavLink to={'/team'}><button className='border-2 border-greenColor text-greenColor font-semibold px-3 py-2 xs:px-4 xs:py-2 rounded-lg text-xs xs:text-sm sm:text-base md:text-sm hover:bg-greenColor hover:text-white transition-colors'>
-              Our team
-            </button></NavLink>
+              {language === 'en' ?'Our team' : 'Біздің тобымыз'}
+            </button></NavLink> 
           </div>
         </div></motion.div>
       </section>
@@ -152,9 +159,14 @@ so that children can learn about their national heritage from an early age.
     ><div className='max-w-[1200px] flex items-start justify-between w-full px-5 py-[120px]  gap-[5%] sm:justify-center'>
           <div className='w-1/3 h-full sm:w-[150px] lg:w-[250px] bg-gray-900'><img src={bookCover} alt="bookCover" className='w-full h-full'/></div>
           <div className='w-2/3 h-full text-left flex flex-col items-start justify-between'>
-            <h2 className='text-xs xs:text-base sm:text-xl md:text-lg lg:text-4xl font-bold text-pigPink mb-2 md:mb-4'>📚 Books for Children</h2> 
-            <p className='text-[#6D6D6D] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>Download and read our two free children's books, "Kazakh History from A to Z" (available in Kazakh and English). These books cover various prominent figures from Kazakh history. From Abai Kunanbayuly to Manshuk Mametova, these books can serve as an introduction to Kazakh history for young readers. Order your free copy today!</p>
-            <NavLink to={'/books'}><button className='text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 rounded-2xl hover:bg-coralColor transition-all duration-150 ease-in '  style={{  fontFamily: "Shantell Sans, cursive" }}>Download</button></NavLink>
+            <h2 className='text-xs xs:text-base sm:text-xl md:text-lg lg:text-4xl font-bold text-pigPink mb-2 md:mb-4'>{ language === 'en' ? '📚 Books for Children' : '📚Балаларға Арналған Кітаптар'}</h2> 
+            <p className='text-[#6D6D6D] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>
+              { language === 'en' ?
+               'Download and read our two free childrens books, "Kazakh History from A to Z" (available in Kazakh and English). These books cover various prominent figures from Kazakh history. From Abai Kunanbayuly to Manshuk Mametova, these books can serve as an introduction to Kazakh history for young readers. Order your free copy today!'
+              : 
+                '«Қазақ Тарихы А-дан І-ге дейін» атты екі тегін балалар кітабымызды қазір жүктеп алып, оқыңыз (қазақ және ағылшын тілдерінде). Бұл кітаптар қазақ тарихындағы түрлі тұлғалар қамтылған. Абай Құнанбайұлынан бастап Мәншүк Мәметоваға дейін – бұл кітаптар жас оқырмандар үшін қазақ тарихына кіріспе бола алады. Бүгін тегін көшірмеге тапсырыс беріңіз!'
+              }</p>
+            <NavLink to={'/books'}><button className='text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg bg-pigPink text-white font-semibold px-3 py-1 xs:px-5 xs:py-2 md:px-9 md:py-3 rounded-2xl hover:bg-coralColor transition-all duration-150 ease-in '  style={{  fontFamily: "Shantell Sans, cursive" }}>{language === 'en' ? 'Download' : 'Жүктеп алу'}</button></NavLink>
           </div>  
         </div> </motion.div>
       </section>
@@ -168,8 +180,8 @@ so that children can learn about their national heritage from an early age.
         <NotAvailable/>
       </section>
       <section className='w-full h-[700px] xs:h-[850px] sm:h-[300px] md:h-[500px] bg-gradient-to-b from-skyBlue via-skyBlue to-white to-99% relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl px-3'  style={{  fontFamily: "Shantell Sans, cursive" }}>
-        <h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>🎲 Entertainment 🎨</h2>
-        <p className='text-xs sm:text-sm md:text-base lg:text-lg text-blueColor mt-3 font-normal'>Games for children based on Kazakh culture and traditions</p>
+        <h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>{language === 'en' ? '🎲 Entertainment 🎨' : '🎲 Ойындар 🎨'}</h2>
+        <p className='text-xs sm:text-sm md:text-base lg:text-lg text-blueColor mt-3 font-normal'>{language === 'en' ? 'Games for children based on Kazakh culture and traditions' : 'Қазақ мәдениеті мен салт-дәстүріне негізделген балаларға арналған ойындар'}</p>
         <div className='flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-5 lg:gap-10 mt-10 md:mt-20'>
           {games.map((game) => (
               <Game id={game.id} icon={game.icon} bg={game.bg} onClick={openModal} giveIdToParent={findIdModal}/>  
@@ -198,13 +210,17 @@ so that children can learn about their national heritage from an early age.
       </section>
       <section className="w-full h-[550px] xs:h-[600px] md:h-[800px] lg:h-[850px] relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl" style={{ fontFamily: "Shantell Sans, cursive" ,backgroundImage: `url(${podcastBg})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className='w-full z-[9999] flex flex-col items-center justify-start mt-10 px-3'>
-          <h2 className='text-base xs:text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-gray-700 '>🎧 Podcasts</h2>
-          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-lg lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-5 text-[#6D6D6D]'>In our podcast, you can feel the spirit of Kazakh history up close and authentically through conversations with scholars and our relatives.</p>
+          <h2 className='text-base xs:text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-gray-700 '>{language === 'en' ? '🎧 Podcasts' : '🎧 Подкасты'}</h2>
+          <p className='text-xs xs:text-sm sm:w-[80%] md:text-base lg:text-lg lg:w-[50%] lg:leading-8 mt-3 md:mt-5 lg:mt-7 font-medium leading-5 text-[#6D6D6D]'>{language === 'en' ?
+          'In our podcast, you can feel the spirit of Kazakh history up close and authentically through conversations with scholars and our relatives.' 
+          :
+          'Біздің подкастымызда — ғалымдармен және туыстарымызбен әңгімелер арқылы қазақ тарихының рухын жақыннан әрі шынайы сезіне аласыз.' 
+          }</p>
           <div className='w-full max-w-full mt-10 md:mt-16 flex flex-col items-center justify-center gap-16 md:gap-20'>
             <div className='w-60 sm:w-80'> 
               <SliderComponent />
             </div>
-            <NavLink to='/podcasts'><button className='flex items-center justify-center gap-4 rounded-2xl bg-blueColor text-xs xs:text-sm lg:text-base lg:py-3 lg:px-8 py-2 px-5 text-lightBlue font-bold'>Listen 🎙️ <span> <MoveRight color='#A7B5FE'/></span></button></NavLink>
+            <NavLink to='/podcasts'><button className='flex items-center justify-center gap-4 rounded-2xl bg-blueColor text-xs xs:text-sm lg:text-base lg:py-3 lg:px-8 py-2 px-5 text-lightBlue font-bold'>{language === 'en' ? 'Listen 🎙️' : 'Тыңда 🎙️'}<span> <MoveRight color='#A7B5FE'/></span></button></NavLink>
           </div>
         </div>
         
@@ -213,7 +229,11 @@ so that children can learn about their national heritage from an early age.
       <section className="w-full h-[500px] xs:h-[550px] md:h-[600px] lg:h-[650px] bg-lavenderColor relative flex flex-col items-center justify-start" style={{ fontFamily: "Shantell Sans, cursive"}}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"  className='absolute top-[-12%] xs:top-[-15%] sm:top-[-22%] md:top-[-25%] xl:top-[-35%] z-0'><path fill="#CA9FDD" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,138.7C384,149,480,171,576,165.3C672,160,768,128,864,106.7C960,85,1056,75,1152,69.3C1248,64,1344,64,1392,64L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         <div className='z-[9999] flex flex-col items-center justify-center w-full px-3'>
-          <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>📜 Features of History and Traditions</h2> <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium leading-4 text-stone-500'>If you want to learn more about the customs, culture, and traditions of Kazakh heritage, check out our sections!</p>
+          <h2 className='text-sm xs:text-base sm:text-2xl md:text-3xl lg:text-4xl font-bold text-purpleColor mt-5 md:mt-3' style={{ fontFamily: 'Montserrat, sans-serif'}}>{language === 'en' ? '📜 Features of History and Traditions' : '📜 Тарих пен дәстүрлердің ерекшеліктері'}</h2> 
+          <p className='text-xs xs:text-sm sm:text-base md:w-[80%] lg:text-xl mt-3 lg:mt-5 font-medium leading-4 text-stone-500'>{language === 'en' ?
+            'If you want to learn more about the customs, culture, and traditions of Kazakh heritage, check out our sections!' : 
+            'Қазақ мұрасының салт-дәстүрлері, мәдениеті мен ырымдары туралы көбірек білгіңіз келсе, біздің бөлімдерді қараңыз!'
+          }</p>
           <motion.div
        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
