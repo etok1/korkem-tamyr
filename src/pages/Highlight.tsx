@@ -18,52 +18,69 @@ export default function Highlights({articles}:{ articles: ArticleGroup[] }){
     console.log(category) 
 
    
-
+const emojis = ['📩', '🏔️', '📷', '📚', '❤️', '🔖'];
 
     console.log(article) 
     return(
-      <div className="bg-gradient-to-br from-white to-blue-50 p-4 md:p-8 max-w-[1200px] mx-auto rounded-xl shadow-sm" style={{ fontFamily: "Playpen Sans, cursive" }}>
-  
-          <div className="flex flex-col md:flex-row gap-6 mb-8">
-            <div className="flex-1">
-              <h1 className="text-xl md:text-3xl font-bold text-indigo-900 mb-4 drop-shadow-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                {article.name}
-              </h1>
-              <p className="text-base md:text-lg text-slate-700 leading-relaxed text-left bg-gradient-to-r from-indigo-50 to-blue-50 p-4 rounded-lg border-l-4 border-indigo-200">
-                {article.text}
-              </p>
-            </div>
-            <img loading='lazy'
-              className="w-full md:w-[350px] h-auto max-h-[400px] object-cover rounded-xl shadow-lg border-4 border-white ring-2 ring-indigo-100" 
-              src={article.img} 
-              alt={article.name} 
-            />
-          </div>
+    <div 
+  className="bg-white/90 backdrop-blur-sm p-6 md:p-10 max-w-[1100px] mx-auto rounded-2xl shadow-lg border border-indigo-100"
+  style={{ fontFamily: "Playpen Sans, cursive" }}
+>
 
-          
-          <div className="space-y-8">
-            {article.content.sections.map((section:ArticleSection, index: number) => (
-              <motion.div  initial={{ opacity: 0, y: 50 }}
+  <div className="flex flex-col md:flex-row gap-8 mb-10 items-center">
+    <div className="flex-1 text-left">
+      <h1 
+        className="text-2xl md:text-4xl font-bold text-indigo-950 mb-4 tracking-tight" 
+        style={{ fontFamily: 'Montserrat, sans-serif' }}
+      >
+        {article.name}
+      </h1>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed bg-gradient-to-r from-indigo-50/70 to-white p-5 rounded-xl border border-indigo-100 shadow-sm">
+        {article.text}
+      </p>
+    </div>
+
+    <img
+      loading="lazy"
+      className="w-full md:w-[350px] h-auto max-h-[420px] object-cover rounded-2xl shadow-xl ring-1 ring-indigo-100 hover:scale-[1.02] transition-transform duration-300"
+      src={article.img}
+      alt={article.name}
+    />
+  </div>
+
+
+  <div className="space-y-10">
+    {article.content.sections.map((section: ArticleSection, index: number) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5 }}
-    ><div key={index} className="border-l-4 border-indigo-300 pl-4 text-left bg-gradient-to-r from-white to-indigo-50 p-4 rounded-r-lg shadow-sm">
-                <h2 className="text-lg md:text-2xl font-semibold text-indigo-800 mb-3 drop-shadow-sm" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  {section.title}
-                </h2>
-                <p className="text-sm md:text-lg text-slate-600 font-light leading-relaxed">
-                  {section.text}
-                </p>
-              </div></motion.div>
-            ))}
-          </div>
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="group"
+      >
+        <div className="border-l-4 border-indigo-400/70 pl-5 text-left bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-200">
+          <h2 
+            className="text-lg md:text-2xl font-semibold text-indigo-900 mb-3 flex items-center gap-2 group-hover:text-indigo-700 transition-colors duration-200" 
+            style={{ fontFamily: 'Montserrat, sans-serif' }}
+          >
+            <span className="text-xl md:text-2xl">{emojis[index]}</span>
+            {section.title}
+          </h2>
+          <p className="text-gray-800 text-sm md:text-lg leading-relaxed font-light">
+            {section.text}
+          </p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
 
-            
-          <div className="mt-12 pt-6 border-t border-indigo-100 text-center bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-xl">
-            <p className="text-sm text-indigo-600 font-medium italic">
-              National cultural heritage is the guarantor of the continuity of generations.
-            </p>
-          </div>
-      </div>
+  <div className="mt-14 pt-6 border-t border-indigo-100 text-center">
+    <p className="text-sm md:text-base text-indigo-600 font-medium italic bg-gradient-to-r from-indigo-50/60 to-purple-50/60 p-4 rounded-xl shadow-sm inline-block">
+      National cultural heritage is the guarantor of the continuity of generations.
+    </p>
+  </div>
+</div>
+
     )
 }
