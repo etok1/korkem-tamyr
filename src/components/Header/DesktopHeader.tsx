@@ -68,10 +68,10 @@ export default function DesktopHeader() {
                         )}
                     </li>
                     ))}
-                    <div className='flex flex-col items-center text-black'>
+                    <div className='flex flex-col items-center text-black' style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}>
                         <button 
                             className={`${language === 'en' ? 'font-bold text-nightBlue' : 'text-gray-500'} border-b-2 border-gray-300`} 
-                            onClick={() => handleLanguageChange('en')}
+                            onClick={() => handleLanguageChange('en')} 
                         >
                             EN
                         </button>

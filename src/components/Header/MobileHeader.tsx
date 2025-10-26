@@ -55,13 +55,13 @@ useEffect(() => {
        <div className='flex items-center gap-2'> <NavLink to='/'><img src={logo} alt="logo" width={100} className='w-[70px]'/></NavLink><div className='flex flex-col items-center text-black'>
                         <button 
                             className={`${language === 'en' ? 'font-bold text-nightBlue' : 'text-gray-500'} text-xs border-b-2 border-gray-300`} 
-                            onClick={() => handleLanguageChange('en')}
+                            onClick={() => handleLanguageChange('en')} style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}
                         >
                             EN
                         </button>
                         <button 
                             className={`${language === 'kz' ? 'font-bold text-nightBlue' : 'text-gray-500'} text-xs`} 
-                            onClick={() => handleLanguageChange('kz')}
+                            onClick={() => handleLanguageChange('kz')} style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}
                         >
                             KZ
                         </button>

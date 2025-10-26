@@ -11,6 +11,7 @@ import member2 from '../assets/images/member2.png'
 import member1 from '../assets/images/member1.png'
 import { Figures } from "../components/Figures"
 import { circlesConfig } from "../utils/data"
+import { useLanguage } from "../utils/context"
 
 const members = [
     {
@@ -105,11 +106,12 @@ const members = [
 ]
 
 export default function Team(){
+    const {language} = useLanguage()
     return(
         <>
         <section className=" relative" >
             <h1 className="text-lg xs:text-xl sm:text-3xl font-bold lg:text-5xl text-nightBlue m-12 text-shadow-lg"   style={{  fontFamily: "Playpen Sans, cursive" }}>
-                <span className="animate-wiggle ">🌟</span> Our team! <span className="animate-wiggle">🌟</span>
+                <span className="animate-wiggle ">🌟</span> {language ==='en' ? 'Our team!' : 'Біздің тобымыз'} <span className="animate-wiggle">🌟</span>
             </h1>
             <div className="max-w-[1400px] w-full m-auto flex flex-wrap items-center justify-center gap-10 mt-10 xs:mt-14 z-50 px-3 md:mt-20 mb-10">
                 {members.map((member) => (
