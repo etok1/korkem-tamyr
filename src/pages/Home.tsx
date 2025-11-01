@@ -19,6 +19,8 @@ import ModalContentComp from '../components/ModalContentComp';
 import tradKzIcon from '../assets/svg/tradKzIcon.svg'
 import { motion } from 'framer-motion';
 import { useLanguage } from '../utils/context';
+import SliderMuppet from '../components/SliderMuppet';
+
 const games = [
   {
     id: 1,
@@ -289,20 +291,12 @@ const { language } = useLanguage();
             </div>    
         </div>
       </section>
-      <section className="w-full h-[250px] md:h-[400px] flex flex-col items-center justify-start gap-5 mb-16" style={{ fontFamily: "Shantell Sans, cursive"}}>
-        {/* <div className='bg-paleGreen flex flex-col items-center justify-start rounded-3xl p-5 max-h-[280px] sm:max-h-[350px] md:max-h-[450px] lg:max-h-[550px] h-full w-[95%] lg:w-[80%] xl:w-[60%]'>
-          <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-greenColor'>🎭 Muppet show </h2>
-          <p className='text-xs sm:text-sm md:text-base text-[#6D6D6D40] font-semibold mt-2 lg:mt-2'>Біздің шоуымыздан фотосуреттер</p>
-          <div className='flex  items-center justify-center gap-5 xs:gap-7 sm:gap-10 mt-7 md:mt-12'>
-            <div className='w-[80px] h-[80px] xs:w-[100px] xs:h-[100px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] rounded-2xl bg-slate-700'></div>
-            <div className='w-[80px] h-[80px] xs:w-[100px] xs:h-[100px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]  rounded-2xl bg-slate-700'></div>
-            <div className='w-[80px] h-[80px] xs:w-[100px] xs:h-[100px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] rounded-2xl bg-slate-700'></div>
-          </div>
-          <NavLink to='/'><button className='flex items-center justify-center text-xs sm:text-sm md:text-base gap-4 rounded-2xl bg-greenColor py-2 px-5 md:py-3 md:px-7 text-paleGreen font-bold mt-7 md:mt-13 lg:mt-16'>Толығырақ біліңіз 🎙️ <span> <MoveRight color='#BEDA9D'/></span></button></NavLink>
-
-        </div> */}
-        <h2 className='font-bold text-base xs:text-lg sm:text-xl md:text-3xl lg:text-4xl text-nightBlue mt-10' style={{ fontFamily: 'Montserrat, sans-serif'}}>🎭 Muppet show </h2>
-         <NotAvailable/>
+      <section className="w-full h-[300px] xs:h-[300px] sm:h-[300px] md:h-[400px] flex flex-col items-center justify-start gap-5 mb-24" style={{ fontFamily: "Shantell Sans, cursive"}}>
+        <h2 className='font-bold text-lg xs:text-2xl sm:text-3xl lg:text-4xl text-nightBlue mt-10' style={{ fontFamily: 'Montserrat, sans-serif'}}>🎭 Muppet show 🎭</h2>
+         <div className='w-full max-w-full mt-0 md:mt-6 flex flex-col items-center justify-center gap-16 md:gap-20'>
+            <div className='w-60  xs:w-[73%] sm:w-[80%]'> 
+              <SliderMuppet/>
+            </div></div>
       </section>
       
    </>

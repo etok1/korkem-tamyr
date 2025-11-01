@@ -1,0 +1,49 @@
+.slide-item {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.podcast-image {
+  width: 450px !important;
+  height: 300px !important;
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+  .podcast-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .podcast-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .podcast-image {
+    width: 250px !important;
+    height: 250px !important;
+  }
+}
+
+/* .slick-prev:before,
+.slick-next:before {
+  color: #000 !important; /* Black arrows } */
