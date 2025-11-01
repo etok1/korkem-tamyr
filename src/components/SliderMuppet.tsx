@@ -14,10 +14,13 @@ import image8 from "../assets/images/muppet8.jpg";
 import image9 from "../assets/images/muppet9.jpg";
 import image10 from "../assets/images/muppet10.jpg";
 import image11 from "../assets/images/muppet11.jpg";
+import type { MouseEventHandler } from "react";
 
 
-function CustomNextArrow(props) {
-  const { className, onClick } = props;
+function CustomNextArrow({ className, onClick }: { 
+  className?: string; 
+  onClick?: MouseEventHandler<HTMLDivElement>; 
+}) {
   return (
       <div
       className={className}
@@ -51,8 +54,10 @@ function CustomNextArrow(props) {
   );
 }
 
-function CustomPrevArrow(props) {
-  const { className, onClick } = props;
+function CustomPrevArrow({ className, onClick }: { 
+  className?: string; 
+  onClick?: MouseEventHandler<HTMLDivElement>; 
+}) {
   return (
     <div
       className={className}
