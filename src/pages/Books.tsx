@@ -1,7 +1,6 @@
-import engBook from '../assets/pdf/Kazakh_History_A_to_Z_Complete_Final( in English ).pdf'
-import engBookCover from '../assets/images/bookCover.png'
-import kzBook from '../assets/pdf/Kazakh History Book from A to Z( in Kazakh).pdf'
-import kzBookCover from '../assets/images/bookCover2.png'
+import engBook from '../assets/pdf/Kazakh History A to Z - English Updated Cover.pdf'
+import BookCover from '../assets/images/bookCover.png'
+import kzBook from '../assets/pdf/Kazakh History Book from A to Z - (Kazakh )Cover.pdf'
 import { motion } from 'framer-motion';
 import { useLanguage } from '../utils/context';
 
@@ -52,14 +51,14 @@ color: "#FF8BB430",
 const books = [
         {
             title: "Қазақ Тарихы",
-            img: kzBookCover,
+            img: BookCover,
             file: kzBook,
             name: "Kazakh_History_KZ.pdf",
             button: "📩 Жүктеп алу",
         },
         {
             title: "Kazakh History",
-            img: engBookCover,
+            img: BookCover,
             file: engBook,
             name: "Kazakh_History_EN.pdf",
             button: "📩 Download PDF",
