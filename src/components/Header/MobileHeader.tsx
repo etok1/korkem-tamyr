@@ -4,6 +4,7 @@ import { ChevronDown, Instagram, Menu, X,  } from 'lucide-react';
 import { navigation } from '../../utils/data';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../utils/context';
+import { HashLink } from 'react-router-hash-link';
 
 const media = [
     {
@@ -82,6 +83,8 @@ useEffect(() => {
                         >
                             {nav.name}
                         </a> 
+                        : nav.name==='Muppet Show' ? 
+                        <HashLink  to={nav.link || '/'}  smooth scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="flex items-center hover:bg-nightBlue hover:text-white px-2 py-2 rounded-xl flex-grow">{nav.name}</HashLink>                           
                         : <NavLink 
                     to={nav.link || '/'} 
                     className="flex items-center hover:bg-nightBlue hover:text-white px-2 py-2 rounded-xl flex-grow"
