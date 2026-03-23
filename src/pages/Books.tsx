@@ -92,13 +92,13 @@ const {language} = useLanguage()
     </svg>
 
     <div className="relative flex flex-wrap justify-center items-start gap-10 px-6 py-16 lg:py-20 z-10">
-        {books.map((book, i) => (
+        {books.map((book, index) => (
         <motion.div
-            key={i}
+            key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.15 }}
+            transition={{ duration: 0.4, delay: index * 0.15 }}
             className="w-[280px] sm:w-[300px] bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
         >
             <div className="relative h-[380px] flex items-center justify-center bg-gray-50">

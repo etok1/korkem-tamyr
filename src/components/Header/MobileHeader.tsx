@@ -14,17 +14,13 @@ const media = [
      
 ]
 
-// {
-//         name: 'youtube link',
-//         link: '', 
-//         icon: <Youtube width={30} height={30} className='md:h-[20px] md:w-[20px] lg:h-[20px] lg:w-[20px]' color='#1E3A8A'/>,
-//     }
+
 export default function MobileHeader() {
   const [isOpen, setIsOpen] =  useState(false)
-   const menuRef = useRef<HTMLDivElement>(null)
-   const [openDropDown, setOpenDropDown] = useState<boolean>(false)
- const location = useLocation();
- const {language, setLanguage} = useLanguage()
+  const menuRef = useRef<HTMLDivElement>(null)
+  const [openDropDown, setOpenDropDown] = useState<boolean>(false)
+  const location = useLocation();
+  const {language, setLanguage} = useLanguage()
  
          const handleLanguageChange = (newLanguage: 'en' | 'kz') => {
              setLanguage(newLanguage);
@@ -77,13 +73,22 @@ useEffect(() => {
             {navigation[language].map((nav) => (
               <li key={nav.name} className="group text-nightBlue font-sansPT font-bold text-sm no-underline block w-full" onClick={() => nav.name === 'Highlights' || nav.name === 'Ерекшеліктері' ? setOpenDropDown(!openDropDown) : ''} aria-label={nav.name}>
                 <div className="flex items-center justify-between w-fit">
-                  <NavLink 
+                   {nav.name === 'Short film' ? <a
+                            href={nav.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center hover:bg-nightBlue hover:text-white px-2 py-2 rounded-xl flex-grow"
+                            
+                        >
+                            {nav.name}
+                        </a> 
+                        : <NavLink 
                     to={nav.link || '/'} 
                     className="flex items-center hover:bg-nightBlue hover:text-white px-2 py-2 rounded-xl flex-grow"
                   style={{ fontFamily: "Playpen Sans, cursive" }}>
                     {nav.name}
                     
-                  </NavLink>
+                  </NavLink>}
                   {nav.name === 'Highlights'|| nav.name === 'Ерекшеліктері' ? <ChevronDown className={`transition-transform duration-200 cursor-pointer ${openDropDown ? 'rotate-180' : 'rotate-0'}`}/> : ''}
                 </div>
                 {nav.dropdown && (
@@ -109,7 +114,7 @@ useEffect(() => {
         </nav>
         <div className='w-fit flex items-center justify-center gap-4 m-5 mt-2'>
           {media.map((item) => (
-            <NavLink to={item.link}  target="_blank" key={item.name}><button aria-label={item.name}>{item.icon}</button></NavLink>
+            <NavLink  to={item.link}  target="_blank" key={item.name}><button aria-label={item.name}>{item.icon}</button></NavLink>
           ))}
         </div>
       </div>

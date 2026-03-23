@@ -15,7 +15,11 @@ import logo1 from "../assets/images/podcast1.jpg";
 import logo2 from "../assets/images/podcast2.jpg";
 import logo3 from "../assets/images/podcast3.jpg";
 import logo4 from "../assets/images/podcast4.jpg";
+import colouringBookPDF from "/src/assets/pdf/colouringBook.pdf";
 import type { ModalContentType, NavigationItem } from "./types";
+
+console.log("PDF URL:", colouringBookPDF);
+
 export const figuresConfig = [
   {
     type: "cloud",
@@ -247,7 +251,7 @@ export const navigation: Record<"en" | "kz", NavigationItem[]> = {
     },
     {
       name: "Short film",
-      link: "/",
+      link: "https://youtu.be/DOORMqt3NB8?si=nyU1TjqUhE2t5_y_",
     },
     {
       name: "Podcasts",
@@ -263,7 +267,7 @@ export const navigation: Record<"en" | "kz", NavigationItem[]> = {
     },
     {
       name: "Muppet Show",
-      link: "/",
+      link: "/#muppetShow",
     },
   ],
   kz: [
@@ -277,7 +281,7 @@ export const navigation: Record<"en" | "kz", NavigationItem[]> = {
     },
     {
       name: "Мини фильм",
-      link: "/",
+      link: "https://youtu.be/DOORMqt3NB8?si=nyU1TjqUhE2t5_y_",
     },
     {
       name: "Подкасты",
@@ -293,7 +297,7 @@ export const navigation: Record<"en" | "kz", NavigationItem[]> = {
     },
     {
       name: "Muppet Show",
-      link: "/",
+      link: "/#muppetShow",
     },
   ],
 };
@@ -993,7 +997,7 @@ export const navigationFooter = {
     },
     {
       name: "Muppet Show",
-      link: "/",
+      link: "/#muppetShow",
     },
   ],
   kz: [
@@ -1011,7 +1015,7 @@ export const navigationFooter = {
     },
     {
       name: "Muppet Show",
-      link: "/",
+      link: "/#muppetShow",
     },
   ],
 };
@@ -1101,7 +1105,7 @@ export const contents: ModalContentType[] = [
           {
             type: "downloadLink",
             text: "жүктеп алыңыз",
-            url: "../assets/colouringBook.pdf",
+            url: colouringBookPDF,
           },
           {
             type: "text",
@@ -1113,7 +1117,7 @@ export const contents: ModalContentType[] = [
           {
             type: "downloadLink",
             text: "Download",
-            url: "../assets/colouringBook.pdf",
+            url: colouringBookPDF,
           },
           {
             type: "text",

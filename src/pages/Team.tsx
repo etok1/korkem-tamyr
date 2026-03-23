@@ -114,8 +114,8 @@ export default function Team(){
                 <span className="animate-wiggle ">🌟</span> {language ==='en' ? 'Our team!' : 'Біздің тобымыз'} <span className="animate-wiggle">🌟</span>
             </h1>
             <div className="max-w-[1400px] w-full m-auto flex flex-wrap items-center justify-center gap-10 mt-10 xs:mt-14 z-50 px-3 md:mt-20 mb-10">
-                {members.map((member) => (
-                    <Member image={member.image} name={member.name} position={member.position} color={member.color} circleColor={member.circleColor} nickname={member.nickname} link={member.link} />
+                {members.map((member, index) => (
+                    <Member key={index} image={member.image} name={member.name} position={member.position} color={member.color} circleColor={member.circleColor} nickname={member.nickname} link={member.link} />
                 ))}
             </div>
             {circlesConfig.map((circle, index)=> (

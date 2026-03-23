@@ -40,8 +40,8 @@ const {language} = useLanguage()
                 </div>
             </div>
             <div className='mt-5 lg:mt-8 flex flex-col gap-5'>
-                {podcasts[language].map((podcast) => (
-                <PodcastOption id={podcast.id} name={podcast.name} duration={podcast.duration} text={podcast.text} image={podcast.image}/>
+                {podcasts[language].map((podcast,index) => (
+                <PodcastOption key={index} id={podcast.id} name={podcast.name} duration={podcast.duration} text={podcast.text} image={podcast.image}/>
                 ))}
                 
             </div>

@@ -2,10 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import { navigationFooter } from "../utils/data";
 import { Instagram, Mail, Phone, } from "lucide-react";
 import { useLanguage } from "../utils/context";
+import { HashLink } from "react-router-hash-link";
 
 export default function Footer(){
 const { language } = useLanguage();
-   
+const currentYear = new Date().getFullYear()
 
     return(
         <footer className="mt-auto py-4 bg-blueColor w-full h-[450px] relative bottom-0 left-0 right-0"  style={{  fontFamily: "Shantell Sans, cursive" }}>
@@ -26,21 +27,25 @@ const { language } = useLanguage();
                     <div className="mt-5 xs:mt-7 sm:mt-0">
                         <h3 className=" text-sm  xs:text-base  md:text-xl text-white lg:text-2xl font-semibold tracking-[0.1em]" style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}>Navigation:</h3>
                         <ul className="grid grid-cols-2 gap-x-8 mt-2">
-                            {navigationFooter[language].map((nav) => (
-                                <li className='text-dirtBlue text-left py-1 font-medium text-xs xs:text-sm lg:text-base capitalize hover:text-white transition-all duration-150 '><NavLink to={nav.link}>{nav.name}</NavLink></li>
+                            {navigationFooter[language].map((nav, index) => (
+                                <li key={index} className='text-dirtBlue text-left py-1 font-medium text-xs xs:text-sm lg:text-base capitalize hover:text-white transition-all duration-150 '>
+                                    {
+                                     nav.name==='Muppet Show' ? <HashLink  to={nav.link || '/'}  smooth scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'start' })} >{nav.name}</HashLink>  :  <NavLink to={nav.link} onClick={() => window.scrollTo(0, 0)}>{nav.name}</NavLink>
+                                    }
+                                    </li>
                             ))}
                         </ul>
                     </div>
                     <div className="flex items-center justify-center self-end sm:self-start gap-2">
-                        <Link target="_blank" to={'https://www.instagram.com/korkem_tamyr?igsh=dDR4eXAyYXQ2aHli'} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center  rounded-xl bg-[#93AECA35] "><Instagram color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link>
+                        <Link target="_blank" to={'https://www.instagram.com/korkem_tamyr?igsh=dDR4eXAyYXQ2aHli'} onClick={() => window.scrollTo(0, 0)} className="w-[30px] h-[30px] xs:w-[40px] xs:h-[40px] flex items-center justify-center  rounded-xl bg-[#93AECA35] "><Instagram color="#93AECA" className="w-[20px] h-[20px]  xs:w-[30px] xs:h-[30px]"/></Link>
                     </div>
                 </div>
                 
                 <div className="w-full px-5">
                     <div className="h-[2px] w-full bg-skyBlue"></div>
                     <div className="text-xs xs:text-sm text-skyBlue mt-3">
-                        <p>© 2024-2025 Korkem tamyr</p>
-                        <span>Made with ❤️ </span>
+                        <p>© 2024-{currentYear} Korkem tamyr</p>
+                        <span>Made with <a href="https://www.instagram.com/bewitchedsoul.et?igsh=MXRldGQzdm9mbGR0bQ==" target="_blank" rel="noopener noreferrer">❤️</a> </span>
                     </div>
                 </div>
             </div>

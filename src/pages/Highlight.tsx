@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
 import type { ArticleGroup, ArticleSection, ArticleType,  } from "../utils/types";
 import { motion } from "framer-motion";
+import { useLanguage } from "../utils/context";
 
 export default function Highlights({articles}:{ articles: ArticleGroup[] }){
 
   const { categoryId, articleId } = useParams();
-  
+   const {language} = useLanguage()
 
   const category = articles.find((cat: ArticleGroup) => cat.id === categoryId);
   
@@ -77,7 +78,7 @@ const emojis = ['📩', '🏔️', '📷', '📚', '❤️', '🔖'];
 
   <div className="mt-14 pt-6 border-t border-indigo-100 text-center">
     <p className="text-sm md:text-base text-indigo-600 font-medium italic bg-gradient-to-r from-indigo-50/60 to-purple-50/60 p-4 rounded-xl shadow-sm inline-block">
-      National cultural heritage is the guarantor of the continuity of generations.
+      {language === 'en' ? 'National cultural heritage guarantees the continuity of generations.' : 'Ұлттық мәдени мұра – ұрпақтар жалғастығының кепілі.'}
     </p>
   </div>
 </div>

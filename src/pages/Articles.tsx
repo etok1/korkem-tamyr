@@ -20,7 +20,7 @@ console.log(categoryData)
                             </div>
                  <div className="flex flex-row flex-wrap items-center justify-evenly md:w-[90%] md:justify-start md:items-center lg:w-full lg:justify-center mx-auto mt-7 md:mt-11 gap-10 lg:mt-10 lg:flex-row">
                     {categoryData?.articles.map((article) => (
-                        <Article  img={article.img} key={article.id} name={article.name} text={article.text} id={article.id} category={categoryData.id}/>
+                        <Article img={article.img} key={article.id} name={article.name} text={article.text} id={article.id} category={categoryData.id}/>
                     ))}
                 </div>
             </div>

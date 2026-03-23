@@ -12,7 +12,7 @@ export function HistoryRow({icon, heading, text, link}:historyType ) {
                 <p className="text-[10px] w-[90%] xs:text-xs sm:text-sm leading-3 line-clamp-1 sm:leading-5 font-medium text-[#B5B5B5]" style={{ fontFamily: 'Montserrat, sans-serif'}}>{text}</p>
             </div>
         </div>
-        <div>    <NavLink to={link}><MoveRight strokeWidth={5} color="#8C5E9F" className="cursor-pointer w-6 h-6 sm:w-10 sm:h-10 hover:translate-x-1 transition-all duration-150 ease-in"/></NavLink></div>
+        <div>    <NavLink to={link} onClick={() => window.scrollTo(0, 0)}><MoveRight strokeWidth={5} color="#8C5E9F" className="cursor-pointer w-6 h-6 sm:w-10 sm:h-10 hover:translate-x-1 transition-all duration-150 ease-in"/></NavLink></div>
     </div>
   );
 }

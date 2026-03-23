@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { ArrowLeft, Pause, Play, RotateCcw, Volume, Volume1, Volume2 } from 'lucide-react';
 import type { podcastProps } from '../utils/types';
+import { useLanguage } from '../utils/context';
 
 
 interface PodcastListProps {
@@ -11,6 +12,7 @@ interface PodcastListProps {
 
 export default function Podcast({podcasts}: PodcastListProps) {
   const { id } = useParams(); 
+  const {language} = useLanguage()
   let numericId: number;
   if(id) numericId = parseInt(id, 10)
     
@@ -109,20 +111,18 @@ export default function Podcast({podcasts}: PodcastListProps) {
   style={{ fontFamily: "Balsamiq Sans, sans-serif" }}
 >
   <div className="max-w-4xl w-full mx-auto flex flex-col items-center justify-center">
-    {/* Back link */}
     <div className="self-start mb-6">
       <Link
         to="/podcasts"
         className="text-nightBlue hover:text-indigo-700 flex items-center transition-colors duration-200 font-medium text-sm" style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}
       >
-        <ArrowLeft className="mr-1 w-5 h-5" /> All episodes
+        <ArrowLeft className="mr-1 w-5 h-5" /> {language === 'en' ? 'All episodes' : 'Барлық эпизодтар'}
       </Link>
     </div>
 
     {/* Main content card */}
     <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10 w-full border border-gray-100">
       <div className="flex flex-col md:flex-row items-start gap-8">
-        {/* Image */}
         <div className="flex-shrink-0 w-full md:w-auto">
           <img
             src={podcast?.image}
@@ -131,7 +131,6 @@ export default function Podcast({podcasts}: PodcastListProps) {
           />
         </div>
 
-        {/* Text */}
         <div className="flex-1 text-left">
           <h2 className="text-2xl lg:text-3xl font-bold text-nightBlue mb-4 leading-tight" style={{ fontFamily: 'Montserrat Alternates, sans-serif'}}>
             {podcast?.name}
@@ -142,7 +141,6 @@ export default function Podcast({podcasts}: PodcastListProps) {
         </div>
       </div>
 
-      {/* Audio section */}
       <div className="w-full flex flex-col items-center mt-12">
         <audio
           ref={audioRef}
@@ -177,9 +175,8 @@ export default function Podcast({podcasts}: PodcastListProps) {
           </span>
         </div>
 
-        {/* Controls */}
+        {/* play control */}
         <div className="flex flex-col items-center justify-between w-full">
-          {/* Playback */}
           <div className="flex items-center justify-center gap-5">
             <button
               onClick={() => handleSkipChange(-15)}
