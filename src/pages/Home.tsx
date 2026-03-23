@@ -54,7 +54,7 @@ const { language } = useLanguage();
    <>
     <section className="bg-gradient-to-br from-[#F1F1F1] to-[#FEF9F4] relative h-[50vh] xs:h-[70vh] md:h-[85vh] w-full flex items-center justify-center overflow-hidden " style={{ fontFamily: "Playpen Sans, cursive" }}>
         <div className="z-50 relative">
-          <img src={logo} loading='lazy' alt="logo. Korkem Tamyr" className="mx-auto bg-[#FEF9F4] rounded-full w-[250px] sm:w-[180px] md:w-[300px] lg:w-[350px]" />
+          <img src={logo} rel="preload" loading='lazy' alt="logo. Korkem Tamyr" className="mx-auto bg-[#FEF9F4] rounded-full w-[250px] sm:w-[180px] md:w-[300px] lg:w-[350px]" />
         </div>
       <div className="absolute inset-0 z-10">
         {figuresConfig.map((figure, index) => (
@@ -109,7 +109,7 @@ const { language } = useLanguage();
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }} className='z-[9999]'
     ><div className='max-w-[1200px] flex items-start justify-between w-full px-5 py-[120px]  gap-[5%] sm:justify-center'>
-          <div className='w-1/3 h-full sm:w-[150px] lg:w-[250px] bg-gray-900'><img src={bookCover} alt="bookCover" className='w-full h-full'/></div>
+          <div className='w-1/3 h-full sm:w-[150px] lg:w-[250px] bg-gray-900'><img src={bookCover} alt="bookCover" rel="preload" className='w-full h-full'/></div>
           <div className='w-2/3 h-full text-left flex flex-col items-start justify-between'>
             <h2 className='text-xs xs:text-base sm:text-xl md:text-lg lg:text-4xl font-bold text-pigPink mb-2 md:mb-4'>{ language === 'en' ? '📚 Books for Children' : '📚Балаларға Арналған Кітаптар'}</h2> 
             <p className='text-[#6D6D6D] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-xl mb-2 xs:mb-4'>
@@ -202,14 +202,14 @@ const { language } = useLanguage();
          </div>
          </motion.div>
          <div className='absolute top-0 lg:top-32 left-0 lg:left-5 -z-10 opacity-25'>
-              <img 
+              <img rel="preload"
                 src={tradKzIcon} 
                 alt="tradKzIcon" 
                 className='w-full h-full object-contain'
               />
             </div>
             <div className='absolute top-0 lg:top-32 right-0 lg:right-5 -z-10 opacity-25'>
-                <img 
+                <img  rel="preload"
                   src={tradKzIcon} 
                   alt="tradKzIcon" 
                   className='rotate-180'

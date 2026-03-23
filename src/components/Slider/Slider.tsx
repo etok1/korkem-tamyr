@@ -72,7 +72,7 @@ export default function SliderComponent() {
         <Slider {...settings}>
             {images.map((image, index) => (
                 <div key={index} className="slide-item">
-            <img 
+            <img  rel="preload"
               src={image.img} 
               alt={`podcast ${index}`} 
               className="podcast-image"
