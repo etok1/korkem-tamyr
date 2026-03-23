@@ -11,7 +11,7 @@ import { MoveRight } from 'lucide-react';
 import { HistoryRow } from '../components/History';
 import bookCover from '../assets/images/bookCover.png'
 import SliderComponent from '../components/Slider/Slider';
-import NotAvailable from '../components/NotAvailable';
+// import NotAvailable from '../components/NotAvailabl
 import type {   ModalContentType } from '../utils/types';
 import { useEffect, useState } from 'react';
 import MyModal from '../components/Modal';
@@ -206,7 +206,8 @@ const { language } = useLanguage();
         </div>
         <div className='flex items-center justify-center w-[300px] h-[100px] bg-gray-900 px-3'></div> */}
         <h2 className='text-nightBlue font-bold sm:text-2xl'>Short film</h2>
-        <NotAvailable/>
+        <iframe width="300" height="205" className='sm:h-[300px] sm:w-[500px]  md:h-[300px] md:w-[650px] lg:h-[400px]' src="https://www.youtube.com/embed/DOORMqt3NB8"  allow="autoplay; encrypted-media" allowFullScreen></iframe>
+
       </section>
       <section className='w-full h-[700px] xs:h-[850px] sm:h-[300px] md:h-[500px] bg-gradient-to-b from-skyBlue via-skyBlue to-white to-99% relative flex flex-col items-center justify-start rounded-tl-3xl rounded-tr-3xl px-3'  style={{  fontFamily: "Shantell Sans, cursive" }}>
         <h2 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-blueColor mt-5'>{language === 'en' ? '🎲 Entertainment 🎨' : '🎲 Ойындар 🎨'}</h2>
