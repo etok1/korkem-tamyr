@@ -9,7 +9,7 @@ const {language} = useLanguage()
     return(
         <div className=" flex flex-col p-4 md:p-8 max-w-[1100px] mx-auto h-full" style={{ fontFamily: "Shantell Sans, cursive" }}>
             <div className=" flex flex-col-reverse items-start justify-center md:flex-row md:gap-10 lg:gap-16 text-left ">
-                <img src={podcastLogo} loading='lazy' alt="podcasts section logo" className='max-w-[300px] w-full mt-5 md:mt-0 rounded-lg shadow-lg'/>
+                <img rel="preload" src={podcastLogo} loading='lazy' alt="podcasts section logo" className='max-w-[300px] w-full mt-5 md:mt-0 rounded-lg shadow-lg'/>
                 <motion.div  initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}

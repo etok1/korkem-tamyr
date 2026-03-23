@@ -41,7 +41,7 @@ const emojis = ['📩', '🏔️', '📷', '📚', '❤️', '🔖'];
       </p>
     </div>
 
-    <img
+    <img rel="preload"
       loading="lazy"
       className="w-full md:w-[350px] h-auto max-h-[420px] object-cover rounded-2xl shadow-xl ring-1 ring-indigo-100 hover:scale-[1.02] transition-transform duration-300"
       src={article.img}

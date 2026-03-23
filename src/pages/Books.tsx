@@ -102,7 +102,7 @@ const {language} = useLanguage()
             className="w-[280px] sm:w-[300px] bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
         >
             <div className="relative h-[380px] flex items-center justify-center bg-gray-50">
-            <img
+            <img rel="preload"
                 src={book.img}
                 alt={book.title}
                 loading="lazy"

@@ -124,7 +124,7 @@ export default function Podcast({podcasts}: PodcastListProps) {
     <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10 w-full border border-gray-100">
       <div className="flex flex-col md:flex-row items-start gap-8">
         <div className="flex-shrink-0 w-full md:w-auto">
-          <img
+          <img rel="preload"
             src={podcast?.image}
             alt={podcast?.name}
             className="md:w-64 md:h-64 w-full rounded-2xl object-cover shadow-md"
